@@ -13,7 +13,7 @@ CREATE TABLE users (
 );
 
 -- Crear la tabla de proyectos (temas)
-CREATE TABLE projects (
+CREATE TABLE topics (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     title VARCHAR(255) NOT NULL,
