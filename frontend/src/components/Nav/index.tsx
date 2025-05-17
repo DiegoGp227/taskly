@@ -11,7 +11,7 @@ const Nav = () => {
 
                     </li>
                     <li>
-                        <p>create tag</p>
+                        <p>create ta</p>
                     </li>
                     <li className={Style.li_user}>
                         <svg width="38" height="38" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
