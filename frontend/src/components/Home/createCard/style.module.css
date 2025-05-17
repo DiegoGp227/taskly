@@ -1,0 +1,12 @@
+.sec_add {
+    background: #0000;
+    border:1px solid #fff ;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    place-content: center center;
+    align-items: center;
+    cursor: pointer;
+}

@@ -1,3 +1,14 @@
+.main {
+    display: grid;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(178deg, #1F1F1F, #3b3b3b, #67AE6E);
+  grid-template-columns: repeat(6 , 1fr);
+  grid-template-rows: repeat(6 , 1fr);
+}
+
 .sec_title {
     display: flex;
     place-items: center center;
@@ -5,6 +16,7 @@
     margin: 20px;
     gap: 20px;
     height: 100px;
+    grid-column: 1/2;
 }
 
 .sec_form { 
@@ -14,7 +26,11 @@
     padding: 20px;
     border: 3px solid #67AE6E;
     grid-column: 3/5;
-    grid-row: 2;
+    grid-row: 6;
+    & h2 {
+        font-size: 34px;
+        color: #000;
+    }
     & form {
         display: flex;
         place-content: center center;
@@ -22,11 +38,15 @@
         flex-direction: column;
         gap: 20px;
         & input {
-            height: 55px;
+            height: 50px;
+            padding: 6px;
             border-radius: 5px;
             border: 2px solid #000;
+            background: #fff;
             width: 400px;
             font-size: 22px;
+            color: #000;
+            outline: none;
         }
         & button {
             margin-top: 40px;
