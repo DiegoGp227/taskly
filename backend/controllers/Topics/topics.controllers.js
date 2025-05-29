@@ -1,29 +1,22 @@
-import db from "../../db/db.js";
+import db from '../../db/db.js';
 
 const getMyTopics = async (req, res) => {
     try {
-        const authHeader = req.headers['authorization'];
-        let userId
-        if (authHeader) {
-            userId = authHeader.split(' ')[1];
-
-            const query = 'SELECT * FROM topics WHERE user_id = ?';
-            const [data] = await db.query(query, [userId]);
-
-            res.json(data);
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).json({ error: 'user_id is required' });
         }
 
-        if (!userId) {
-            return res.status(400).json({
-                message: "User ID no encontrado"
-            });
-        }
+        const [result] = await db.query(
+            "SELECT * FROM topics WHERE user_id = ?",
+            [id]
+        );
+
+        return res.status(200).json(result);
 
     } catch (error) {
-        console.error("Error en la consulta:", error);
-        return res.status(500).json({
-            message: "something went wrong"
-        });
+        console.error("Error al solicitar los tópicos:", error);
+        res.status(500).json({ message: "Error del servidor" });
     }
 }
 
@@ -31,11 +24,14 @@ const postMyTopics = async (req, res) => {
     try {
         await db.connect();
 
-        const { userId, title, description } = req.body;
+        const { user_id, title, description } = req.body;
 
+        if (!user_id || !title) {
+            return res.status(400).json({ message: "Faltan campos obligatorios" });
+        }
         const [result] = await db.query(
             "INSERT INTO topics (user_id, title, description) VALUES (?, ?, ?)",
-            [userId, title, description]
+            [user_id, title, description]
         );
 
         return res.status(201).json({
@@ -53,50 +49,46 @@ const postMyTopics = async (req, res) => {
 
 const putMyTopics = async (req, res) => {
     try {
-        const topicId = req.params.id;
-        const { userId, title, description } = req.body;
-        const result = await db.query(
+        const id = req.params.id;
+        const { user_id, title, description } = req.body;
+
+        const [result] = await db.query(
             "UPDATE topics SET user_id = ?, title = ?, description = ? WHERE id = ?",
-            [userId, title, description, topicId]
+            [ user_id, title, description, id ]
         );
 
-        db.connect((error) => {
-            if (error) {
-                console.error('Error de conexión:', error);
-                return;
-            }
-            console.log('Conectado a la base de datos');
-        });
-        return res.status(201).json({
-            message: "Book added successfully",
-            bookId: result.insertId,
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: "Tema no encontrado" });
+        }
+
+        return res.status(200).json({
+            message: "Tema actualizado correctamente"
         });
     } catch (error) {
+        console.error("Error al actualizar el tema:", error);
         return res.status(500).json({
-            message: "something went wrong", error: error
-
-        })
+            message: "Error en el servidor",
+            error
+        });
     }
-}
+};
 
 const deleteMyTopics = async (req, res) => {
     try {
-        const bookId = req.params.id;
+        const id = req.params.id;
         const [result] = await db.query(
             "DELETE FROM topics WHERE id = ?",
-            [topicId]
+            [id]
         );
 
         if (result.affectedRows === 0) {
             return res.status(404).json({ message: "topic not found" });
         }
 
-        // Si la eliminación fue exitosa
         res.status(200).json({ message: "topic successfully deleted" });
     } catch (error) {
-        console.error('Error al eliminar el libro:', error);
-        res.status(500).json({ message: "Error al eliminar el libro", error });
+        res.status(500).json({ message: "Error al eliminar el tema", error });
     }
 }
 
-export  { getMyTopics, postMyTopics, putMyTopics, deleteMyTopics }
+export { getMyTopics, postMyTopics, putMyTopics, deleteMyTopics }

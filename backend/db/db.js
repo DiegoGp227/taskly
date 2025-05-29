@@ -27,4 +27,4 @@ async function connectAndQuery() {
 }
 
 connectAndQuery();
-export { db }; 
+export default db ; 

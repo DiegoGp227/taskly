@@ -25,10 +25,10 @@ CREATE TABLE topics (
 CREATE TABLE tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    project_id INT,
+    topics_id INT,
     title VARCHAR(255) NOT NULL,
     priority ENUM('low', 'medium', 'high') NOT NULL,
     status ENUM('todo', 'in_progress', 'done') NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
+    FOREIGN KEY (topics_id) REFERENCES topics(id) ON DELETE CASCADE
 );

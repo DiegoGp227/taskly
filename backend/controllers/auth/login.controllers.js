@@ -1,5 +1,5 @@
 import bcryptjs from "bcryptjs";
-import { db } from "../db/db.js";
+import db from "../../db/db.js";
 import dotenv from 'dotenv'; 
 import jwt from 'jsonwebtoken';
 
@@ -17,7 +17,6 @@ const login = async (req, res) => {
         const query = 'SELECT * FROM users WHERE email = ?';
         const [user] = await connection.execute(query, [email]);
 
-        // Verifica si se encontró el usuario
         if (!user || user.length === 0) {
             console.log('User not found');
             return res.status(404).json({ message: 'User not found' });

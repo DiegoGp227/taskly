@@ -24,7 +24,11 @@
     border-radius: 20px 20px 0px 0px;
     height: 450px;
     padding: 20px;
-    border: 3px solid #67AE6E;
+    /* border: 3px solid #67AE6E; */
+    border: 3px solid #059ca7;
+
+
+    
     grid-column: 3/5;
     grid-row: 6;
     & h2 {
@@ -55,7 +59,11 @@
             place-content: center center;
             gap: 20px;
             background: #67AE6E;
-            box-shadow: 1px 2px 15px 0px #67AE6E;
+            background: #059ca7;
+
+            /* box-shadow: 1px 2px 15px 0px #67AE6E; */
+            box-shadow: 1px 2px 15px 0px #059ca7;
+
             border: none;
             padding: 8px;
             border-radius: 5px;
