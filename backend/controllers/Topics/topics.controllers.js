@@ -3,16 +3,17 @@ import db from '../../db/db.js';
 const getMyTopics = async (req, res) => {
     try {
         const { id } = req.params;
+
         if (!id) {
             return res.status(400).json({ error: 'user_id is required' });
         }
 
-        const [result] = await db.query(
+        const [data] = await db.query(
             "SELECT * FROM topics WHERE user_id = ?",
             [id]
         );
 
-        return res.status(200).json(result);
+        return res.status(200).json(data);
 
     } catch (error) {
         console.error("Error al solicitar los tópicos:", error);
@@ -65,7 +66,6 @@ const putMyTopics = async (req, res) => {
             message: "Tema actualizado correctamente"
         });
     } catch (error) {
-        console.error("Error al actualizar el tema:", error);
         return res.status(500).json({
             message: "Error en el servidor",
             error

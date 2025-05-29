@@ -19,9 +19,9 @@ router.put("/topics/:id", putMyTopics); // ok
 router.delete("/topics/:id", deleteMyTopics); //ok
 
 // Router Task
-router.get("/tasks", getMyTasks);
-router.post("/tasks", postMyTasks);
-router.put("/tasks/:id", putMyTasks);
-router.delete("/tasks/:id", deleteMyTasks);
+router.get("/tasks/:topicId/:statusId", getMyTasks); // ok
+router.post("/tasks", postMyTasks); //ok
+router.put("/tasks/:id", putMyTasks); //ok
+router.delete("/tasks/:id", deleteMyTasks); // ok
 
 export default router;

@@ -27,8 +27,8 @@ CREATE TABLE tasks (
     user_id INT,
     topics_id INT,
     title VARCHAR(255) NOT NULL,
-    priority ENUM('low', 'medium', 'high') NOT NULL,
-    status ENUM('todo', 'in_progress', 'done') NOT NULL,
+    priority TINYINT NOT NULL,  -- 1 = low, 2 = medium, 3 = high
+    status TINYINT NOT NULL,    -- 1 = todo, 2 = in_progress, 3 = done
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (topics_id) REFERENCES topics(id) ON DELETE CASCADE
 );
