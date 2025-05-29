@@ -1,4 +1,4 @@
-#root {
+/* #root {
   display: grid;
   width: 100vw;
   height: 100vh;
@@ -6,5 +6,5 @@
   text-align: center;
   background: linear-gradient(178deg, #1F1F1F, #3b3b3b, #67AE6E);
   grid-template-columns: repeat(6 , 1fr);
-  grid-template-rows: repeat(2 , 1fr);
-}
+  grid-template-rows: repeat(6 , 1fr);
+} */

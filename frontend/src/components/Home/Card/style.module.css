@@ -1,0 +1,20 @@
+.card {
+    display: grid;
+    grid-template-rows: repeat(4 , 1fr);
+    padding: 30px;
+    background: linear-gradient(180deg, #262121, #262121, #284514bf, #3b651e);
+    width: 469px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    height: 200px;
+    box-shadow: -1px 1px 10px 0px #6BC131;
+    cursor: pointer;
+    transition: ease 1s;
+    &:hover {
+        scale: 1.1;
+        transition: scale ease 1s;
+        box-shadow: -1px 1px 20px 3px #76d835;
+        transition: scale ease 1s;
+        transition: ease 1s;
+    }
+}
