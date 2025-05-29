@@ -1,0 +1,17 @@
+# Dependencias
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de entorno
+.env
+
+# Directorios de producción
+dist/
+build/
+
+# Otros archivos temporales
+.DS_Store
