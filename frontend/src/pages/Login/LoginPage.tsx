@@ -1,4 +1,4 @@
-import Login from "../components/Login/index.tsx";
+import Login from "../../components/Login/index.tsx";
 
 function LoginPage () {
     
