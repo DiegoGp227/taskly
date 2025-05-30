@@ -1,6 +1,27 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
 }
- 
+
+:root {
+  /* 🎨 Colores principales */
+  --background-color-write: #ffffff;
+  --background-actions: #00f431;
+  --font-color-black: #555;
+
+  /* 💡 Bordes y radios */
+  --border-radius: 5px;
+  --border-color: #555;
+
+  /* 🔤 Tipografía */
+  --font-size-base: 22px;
+  --font-size-sm: 14px;
+  --font-size-lg: 20px;
+
+  /* 🕶 Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
