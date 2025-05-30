@@ -36,9 +36,7 @@ const Login = () => {
 
                 </section>
             </main>
-
         </>
-
     )
 }
 

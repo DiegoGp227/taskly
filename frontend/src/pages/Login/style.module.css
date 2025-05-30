@@ -1,0 +1,38 @@
+.divPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+background: linear-gradient(178deg, #1F1F1F, #3b3b3b, #05bd2aee);
+}
+
+.header {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logoDiv {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.logoDiv h1 {
+  color: white;
+}
+
+.divMain {
+  background-color: var(--background-color-write);
+  width: 375px;
+  height: 375px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  justify-content: space-evenly;
+}
