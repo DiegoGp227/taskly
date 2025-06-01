@@ -3,14 +3,16 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-
 }
 
 :root {
   /* 🎨 Colores principales */
   --background-color-write: #ffffff;
+  --background-color-black: #282828;
+  --background-color-blue: #212224;
   --background-actions: #00f431;
   --font-color-black: #555;
+  --font-color-white: #ffffff;
 
   /* 💡 Bordes y radios */
   --border-radius: 5px;
@@ -19,7 +21,11 @@
   /* 🔤 Tipografía */
   --font-size-base: 22px;
   --font-size-sm: 14px;
-  --font-size-lg: 20px;
+  --font-size-lg: 26px;
+
+  /* a  */
+  --transition-time: 0.2s;
+  --escale: 1.05;
 
   /* 🕶 Sombras */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);

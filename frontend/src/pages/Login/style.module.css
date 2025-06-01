@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-background: linear-gradient(178deg, #1F1F1F, #3b3b3b, #05bd2aee);
+  background: linear-gradient(178deg, #1f1f1f, #3b3b3b, #05bd2aee);
 }
 
 .header {

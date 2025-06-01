@@ -1,0 +1,20 @@
+.button {
+    width: 308px;
+    height: 179px;
+    background-color: var(--font-color-black);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-time);
+    border: none;
+    border: 1px outset #d6d6d6;
+    margin: 25px 25px;
+}
+
+.button:hover {
+    scale: var(--escale);
+}
+
+.svg {
+    height: 150px;
+    width: 75px;
+}
