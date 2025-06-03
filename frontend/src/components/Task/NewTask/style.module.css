@@ -1,0 +1,15 @@
+.button {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p {
+    font-size: var(--font-size-lg)
+}
+
+.svg {
+    width: 20px;
+}

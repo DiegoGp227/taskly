@@ -1,0 +1,33 @@
+.taskSection {
+    width: 45%;
+    height: 600px;
+    border: 2px solid var(--border-color);
+}
+
+.taskContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.titleDiv {
+    margin: 10px;
+}
+
+.taskDiv {
+    width: 95%;
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.configurationDiv {
+    display: flex;
+    gap: 5px;
+}

@@ -1,0 +1,30 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color-black);
+}
+
+.firstSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.divTitle {
+    margin: 20px;
+}
+
+/* // */
+.title {
+    font-size: 32px;
+    color: var(--font-color-white);
+}
+
+.divbutton {
+    margin: 20px;
+}
+
+.divTaks {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
