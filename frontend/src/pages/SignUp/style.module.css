@@ -32,6 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: linear-gradient(180deg, #1f1f1f, #3b3b3b, #3b3b3b,#3b3b3bb6,#3b3b3b75, #3b3b3b5e,#05bd2a2d); */
 }
 
 .divMain {

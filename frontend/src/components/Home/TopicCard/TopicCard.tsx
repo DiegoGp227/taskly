@@ -1,10 +1,34 @@
 import TopicInfo from "../TopicInfo/TopicInfo";
 import EditCard from "../EditCard/EditCard";
 import DeleteCard from "../DeleteCard/DeleteCard";
+import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
 
 function TopicCard() {
+
+    const [userId, setUserId] = useState<number>();
+    
+      useEffect(() => {
+        const storedId = localStorage.getItem("userId");
+        if (storedId) {
+          setUserId(Number(storedId));
+        }
+      }, []);
+      
+      useEffect(() => {
+        fetch(`http://localhost:5000/api/topics/${userId}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Error al traer la información");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            
+          })
+          .catch((error) => console.error("Error:", error));
+      });
     return (
         <button className={style.buttonCard} >
             <div className={style.divMain} >
