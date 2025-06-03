@@ -15,7 +15,6 @@ function HomePage() {
         <TopicCard />
         <TopicCard />
         <TopicCard />
-        <TopicCard />
 
       </main>
     </div>
