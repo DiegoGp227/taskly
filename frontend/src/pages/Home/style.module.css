@@ -1,9 +1,6 @@
 .main {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
-  background: #eee;
-  overflow-y: auto;
-  height: 100vh;
   background-color: var(--background-color-black);
 }

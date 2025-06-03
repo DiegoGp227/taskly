@@ -5,7 +5,7 @@ import style from "./style.module.css";
 
 function HomePage() {
   return (
-    <div className={style.header}>
+    <>
       <Header />
       <main className={style.main} >
         <CreateTopic />
@@ -15,10 +15,9 @@ function HomePage() {
         <TopicCard />
         <TopicCard />
         <TopicCard />
-        <TopicCard />
-
       </main>
-    </div>
+    </>
+
   );
 }
 

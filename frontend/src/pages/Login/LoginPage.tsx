@@ -1,5 +1,4 @@
-// import Login from "../../components/Auth/index.tsx";
-import Form from "../../components/Auth/Form/Form.tsx";
+import FormLogin from "../../components/Auth/FormLogin/FormLogin.tsx";
 import CreateAccount from "../../components/Auth/CreateAccount/CreateAccount.tsx";
 import style from "./style.module.css";
 
@@ -36,7 +35,7 @@ function LoginPage() {
             <h1>Login</h1>
           </div>
           <div className={style.divs}>
-            <Form />
+            <FormLogin />
           </div>
           <div className={style.divs}>
             <CreateAccount />
@@ -47,7 +46,4 @@ function LoginPage() {
   );
 }
 
-{
-  /* <Login /> */
-}
 export default LoginPage;

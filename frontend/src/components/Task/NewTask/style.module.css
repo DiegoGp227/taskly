@@ -1,9 +1,24 @@
 .button {
-    width: 200px;
+    width: 100%;
     height: 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
     align-items: center;
+    color: var(--font-color-white);
+    background-color: var(--background-color-black);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-color);
+    transition: var(--transition-time);
+}
+
+.button:hover {
+    background-color: var(--background-actions);
+}
+
+.button:hover .svg {
+    color: var(--background-actions);
+    color: white;
 }
 
 .p {
@@ -12,4 +27,6 @@
 
 .svg {
     width: 20px;
+    margin-top: 3px;
+    color: var(--background-actions);
 }

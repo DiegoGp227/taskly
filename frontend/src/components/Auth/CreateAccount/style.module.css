@@ -1,5 +1,10 @@
 .link {
     text-decoration: none;
-    color: var(--font-color-black);
-    font-size: var(--font-size-sm);
+    color: var(--border-color);
+    font-size: 19px;
+    transition: var(--transition-time);
+}
+
+.link:hover {
+    color: var(--background-actions)
 }
