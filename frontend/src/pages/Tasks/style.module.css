@@ -5,25 +5,31 @@
 }
 
 .firstSection {
+    width: 100vw;
+    gap: 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .divTitle {
-    margin: 20px;
+    width: 45%;
+    margin: 50px 0 50px 0;
+    padding-left: 7px;
 }
 
-/* // */
 .title {
-    font-size: 32px;
+    font-size: 40px;
     color: var(--font-color-white);
 }
 
+
 .divbutton {
-    margin: 20px;
+    width: 45%;
+    margin: 50px 0 50px 0;
 }
 
-.divTaks {
+.secondSection {
+    width: 100vw;
     display: flex;
     justify-content: center;
     gap: 5%;

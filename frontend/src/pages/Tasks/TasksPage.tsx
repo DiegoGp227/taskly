@@ -16,10 +16,10 @@ function TaskPage() {
             <NewTask />
           </div>
         </section>
-        <div className={style.divTaks} >
+        <section className={style.secondSection} >
             <TaskList title="To Do" tasks={1} />
             <TaskList title="Complete" tasks={2} />
-        </div>
+        </section>
       </main>
     </>
   );
