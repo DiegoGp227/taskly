@@ -1,11 +1,32 @@
 import style from "./style.module.css";
+import { useState } from "react";
 
 function Form() {
+  const [email , setInpEmail] = useState<string>('')
+  const [password , setInpPassword]  = useState<string>('')
+  const [state , setState] = useState()
+  const onClickF = () => {
+    console.log(email , password)
+     fetch('http://localhost:5000/api/login' , {
+      method : 'POST',
+      body : JSON.stringify({
+        email ,
+        password
+      })
+     })
+  }
   return (
       <form action="" className={style.form}>
-        <input type="text" placeholder="Email" className={style.imput}/>
-        <input type="password" placeholder="Password" className={style.imput}/>
-        <button className={style.button}>
+        <input type="text" placeholder="Email" className={style.imput} onChange={e => {
+          setInpEmail(e.target.value)
+        }}/>
+        <input type="password" placeholder="Password" className={style.imput} onChange={e => {
+          setInpPassword(e.target.value)
+        }}/>
+        <button className={style.button} onClick={e => {
+          e.preventDefault()
+          onClickF()
+        }}>
             <p>Send</p>
           
           <svg
