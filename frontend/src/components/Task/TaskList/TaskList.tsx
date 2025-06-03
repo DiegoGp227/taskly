@@ -1,6 +1,5 @@
 import DeleteTask from "../DeleteTask/DeleteTask";
 import EditTask from "../EditTask/EditTask";
-// import type { StatusTasks } from "../../../types/task.types";
 import style from "./style.module.css";
 
 
