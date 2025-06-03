@@ -1,7 +1,7 @@
 import style from "./style.module.css";
 import { useState } from "react";
 
-function Form() {
+function FormLogin() {
   const [email , setInpEmail] = useState<string>('')
   const [password , setInpPassword]  = useState<string>('')
   const [state , setState] = useState()
@@ -49,4 +49,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default FormLogin;

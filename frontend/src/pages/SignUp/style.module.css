@@ -37,13 +37,18 @@
 .divMain {
   background-color: var(--background-color-black);
   width: 375px;
-  height: 375px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   justify-content: space-evenly;
+  transition: var(--transition-time);
+}
+
+.divMain:hover {
+  /* border: 2px solid var(--background-actions) */
 }
 
 .title {

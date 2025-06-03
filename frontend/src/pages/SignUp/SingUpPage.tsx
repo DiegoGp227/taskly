@@ -1,9 +1,8 @@
-import FormLogin from "../../components/Auth/FormLogin/FormLogin.tsx";
+import FormSignUp from "../../components/Auth/FormSignUp/FormSignUp.tsx";
 import CreateAccount from "../../components/Auth/CreateAccount/CreateAccount.tsx";
 import style from "./style.module.css";
 
 function SignUp() {
-
   return (
     <div className={style.divPage}>
       <header className={style.header}>
@@ -33,10 +32,10 @@ function SignUp() {
       <main className={style.main} >
         <div className={style.divMain}>
           <div className={style.divs}>
-            <h1 className={style.title} >Login</h1>
+            <h1 className={style.title} >Sign Up</h1>
           </div>
           <div className={style.divs}>
-            <FormLogin />
+            <FormSignUp />
           </div>
           <div className={style.divs}>
             <CreateAccount />
