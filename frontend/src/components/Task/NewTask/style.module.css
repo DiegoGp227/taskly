@@ -4,6 +4,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--background-color-black);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-color);
 }
 
 .p {

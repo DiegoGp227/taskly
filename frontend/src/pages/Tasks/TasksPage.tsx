@@ -17,8 +17,8 @@ function TaskPage() {
           </div>
         </section>
         <div className={style.divTaks} >
-            <TaskList title="To Do" tasks={[]} />
-            <TaskList title="Complete" tasks={[]} />
+            <TaskList title="To Do" tasks={1} />
+            <TaskList title="Complete" tasks={2} />
         </div>
       </main>
     </>

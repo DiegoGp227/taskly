@@ -11,6 +11,13 @@
 
 .titleDiv {
     margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 30px;
+    color: var(--font-color-white);
 }
 
 .taskDiv {
@@ -21,6 +28,10 @@
     gap: 10px;
     border-top: 2px solid var(--border-color);
     border-bottom: 2px solid var(--border-color);
+}
+
+.labelText {
+    color: var(--font-color-white);
 }
 
 .checkbox {

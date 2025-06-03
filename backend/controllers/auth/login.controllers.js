@@ -34,7 +34,6 @@ const login = async (req, res) => {
                 message: 'Correct login',
                 token,
                 email,
-                username
             });
         } else {
             console.log('Password does not match');
