@@ -1,11 +1,11 @@
-.divPage {
+.main {
   width: 100vw;
   height: 100vh;
   background-color: var(--background-color-black);
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
+  justify-content: center;
 }
 
 .header {
@@ -26,16 +26,7 @@
   color: white;
 }
 
-.main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background: linear-gradient(180deg, #1f1f1f, #3b3b3b, #3b3b3b,#3b3b3bb6,#3b3b3b75, #3b3b3b5e,#05bd2a2d); */
-}
-
-.divMain {
+.SingUpBox {
   background-color: var(--background-color-black);
   width: 375px;
   height: 400px;
