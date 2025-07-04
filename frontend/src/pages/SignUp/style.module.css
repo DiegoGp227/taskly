@@ -8,24 +8,6 @@
   justify-content: center;
 }
 
-.header {
-  width: 100%;
-  position: fixed;
-  display: flex;
-  justify-content: flex-start;
-  background-color: var(--background-color-blue);
-}
-
-.logoDiv {
-  margin: 10px;
-  display: flex;
-  flex-direction: row;
-}
-
-.logoDiv h1 {
-  color: white;
-}
-
 .SingUpBox {
   background-color: var(--background-color-black);
   width: 375px;
@@ -37,10 +19,6 @@
   border-radius: var(--border-radius);
   justify-content: space-evenly;
   transition: var(--transition-time);
-}
-
-.divMain:hover {
-  /* border: 2px solid var(--background-actions) */
 }
 
 .title {
