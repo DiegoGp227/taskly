@@ -3,7 +3,6 @@ import CreateAccount from "../../components/Auth/CreateAccount/CreateAccount.tsx
 import style from "./style.module.css";
 function SignUp() {
   return (
-    <>
       <main className={style.main}>
         <div className={style.SingUpBox}>
           <div>
@@ -17,7 +16,6 @@ function SignUp() {
           </div>
         </div>
       </main>
-    </>
   );
 }
 
