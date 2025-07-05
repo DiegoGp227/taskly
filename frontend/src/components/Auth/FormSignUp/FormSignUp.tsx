@@ -1,56 +1,69 @@
 import style from "./style.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function FormSignUp() {
-  const [email, setInpEmail] = useState<string>("");
-  const [password, setInpPassword] = useState<string>("");
-  const [state, setState] = useState();
-  const onClickF = () => {
-    console.log(email, password);
-    fetch("http://localhost:5000/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-  };
+  const navigate = useNavigate();
+
+  const [username, setUserName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  async function sendItems(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const credentials = {
+      username,
+      email,
+      password,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Error al registrarse");
+      }
+
+      const data = await response.json();
+      console.log("Registro exitoso:", data);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", data.userId);
+      navigate("/home"); 
+    } catch (error: any) {
+      console.error("Error en el registro:", error.message);
+    }
+  }
+
   return (
-    <form action="" className={style.form}>
+    <form className={style.form} onSubmit={sendItems}>
       <input
         type="text"
         placeholder="User Name"
+        name="userName"
         className={style.imput}
-        onChange={(e) => {
-          setInpEmail(e.target.value);
-        }}
+        onChange={(e) => setUserName(e.target.value)}
       />
       <input
         type="email"
         placeholder="Email"
         className={style.imput}
-        onChange={(e) => {
-          setInpPassword(e.target.value);
-        }}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type="password"
         placeholder="Password"
         className={style.imput}
-        onChange={(e) => {
-          setInpPassword(e.target.value);
-        }}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <button
-        className={style.button}
-        onClick={(e) => {
-          e.preventDefault();
-          onClickF();
-        }}
-      >
+      <button className={style.button} type="submit">
         <p>Send</p>
 
         <svg
@@ -69,5 +82,4 @@ function FormSignUp() {
     </form>
   );
 }
-
 export default FormSignUp;

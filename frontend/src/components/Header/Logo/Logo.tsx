@@ -3,7 +3,7 @@ import style from "./style.module.css";
 function Logo() {
   return (
     <>
-      <img src="../../../../public/img/taskly.png" alt="" />
+      <img src="../../../../public/img/taskly.png" alt="" className={style.img} />
       {/* <a href="">
         <svg
           width="50"

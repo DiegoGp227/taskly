@@ -3,6 +3,11 @@ import CreateTopic from "../CreateTopic/CreateTopic";
 import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
+
+// user id 
+
+
+
 interface Topic {
   id: number;
   title: string;
@@ -10,27 +15,27 @@ interface Topic {
 }
 
 function CardsDiv() {
-  const [user, setUser] = useState<string>("");
-  const [topics, setTopics] = useState<Topic[]>([]);
+  // const [user, setUser] = useState<string>("");
+  // const [topics, setTopics] = useState<Topic[]>([]);
 
-  useEffect(() => {
-    const userId = localStorage.getItem("userId");
-    if (userId) {
-      setUser(userId);
+  // useEffect(() => {
+  //   const userId = localStorage.getItem("userId");
+  //   if (userId) {
+  //     setUser(userId);
 
-      fetch(`http://localhost:5000/api/topics/${userId}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Error al traer la información");
-          }
-          return response.json();
-        })
-        .then((data: Topic[]) => {
-          setTopics(data);
-        })
-        .catch((error) => console.error("Error:", error));
-    }
-  }, []);
+  //     fetch(`http://localhost:5000/api/topics/${userId}`)
+  //       .then((response) => {
+  //         if (!response.ok) {
+  //           throw new Error("Error al traer la información");
+  //         }
+  //         return response.json();
+  //       })
+  //       .then((data: Topic[]) => {
+  //         setTopics(data);
+  //       })
+  //       .catch((error) => console.error("Error:", error));
+  //   }
+  // }, []);
 
   return (
     <main className={style.main} id="main">
@@ -48,6 +53,7 @@ function CardsDiv() {
         ))
       )}
     </main>
+    
   );
 }
 
