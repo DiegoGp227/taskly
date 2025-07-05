@@ -28,12 +28,13 @@ const login = async (req, res) => {
 
         if (isMatch) {
             console.log('Password matched');
-            const token = jwt.sign({ id: user[0].id, email: user[0].email }, SECRET_KEY, { expiresIn: TOKEN_EXPIRATION });
+            const token = jwt.sign({ userId: user[0].id, email: user[0].email }, SECRET_KEY, { expiresIn: TOKEN_EXPIRATION });
 
             return res.status(200).json({ 
                 message: 'Correct login',
                 token,
                 email,
+                userId: user[0].id
             });
         } else {
             console.log('Password does not match');

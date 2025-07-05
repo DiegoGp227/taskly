@@ -38,18 +38,7 @@ const signup = async (req, res) => {
 
         console.log('Usuario creado exitosamente con ID:', insertResult.insertId);
 
-        // Generar el token al crear el usuario
         const token = jwt.sign({ id: insertResult.insertId, email: email }, SECRET_KEY, { expiresIn: TOKEN_EXPIRATION });
-
-        //Frontend
-        // //guarda el token en localstorage
-        // localStorage.setItem('token', token);
-
-        // //guarda el userId en localstorage
-        // localStorage.setItem('userId', insertResult.insertId);
-
-        // //guarda el email en localstorage
-        // localStorage.setItem('email', email);
 
         return res.status(201).json({
             message: 'User successfully created.',
