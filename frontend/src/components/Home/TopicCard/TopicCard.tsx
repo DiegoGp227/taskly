@@ -11,7 +11,7 @@ interface CardInfo {
 
 function TopicCard({ id, title, description }: CardInfo) {
   return (
-    <div className={style.buttonCard}>
+    <div className={style.divCard}>
       <div className={style.divMain}>
         <h1 className={style.titleMain}>{title}</h1>
         <p className={style.pMain}>
