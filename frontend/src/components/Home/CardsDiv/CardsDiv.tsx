@@ -3,59 +3,70 @@ import CreateTopic from "../CreateTopic/CreateTopic";
 import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
-
-// user id 
-
-
-
-interface Topic {
-  id: number;
-  title: string;
-  description: string;
-}
-
 function CardsDiv() {
-  // const [user, setUser] = useState<string>("");
-  // const [topics, setTopics] = useState<Topic[]>([]);
+  const [userId, setUserId] = useState<string>("");
+  const [topics, setTopics] = useState<topicsData>();
 
-  // useEffect(() => {
-  //   const userId = localStorage.getItem("userId");
-  //   if (userId) {
-  //     setUser(userId);
+  type topicsData = {
+    id: number;
+    title: string;
+    description: string;
+  }[];
 
-  //     fetch(`http://localhost:5000/api/topics/${userId}`)
-  //       .then((response) => {
-  //         if (!response.ok) {
-  //           throw new Error("Error al traer la información");
-  //         }
-  //         return response.json();
-  //       })
-  //       .then((data: Topic[]) => {
-  //         setTopics(data);
-  //       })
-  //       .catch((error) => console.error("Error:", error));
-  //   }
-  // }, []);
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("userId");
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+  }, []); 
+
+  useEffect(() => {
+    if (!userId) return;
+
+    async function getTopics() {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/topics/${userId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          const error = await response.json();
+          throw new Error(error.message || "Error al obtener topics");
+        }
+
+        const data = await response.json();
+        setTopics(data);
+        console.log("Data recibida con éxito:", data);
+      } catch (error: any) {
+        console.error("Error en el fetch:", error.message);
+      }
+    }
+
+    getTopics();
+  }, [userId]); 
 
   return (
     <main className={style.main} id="main">
       <CreateTopic />
-      {topics.length === 0 ? (
-        <p>No hay temas para mostrar.</p>
-      ) : (
+      {topics && topics.length > 0 ? (
         topics.map((topic) => (
           <TopicCard
-            key={topic.id} // Siempre importante en listas
             id={topic.id}
             title={topic.title}
             description={topic.description}
           />
         ))
+      ) : (
+        <p>No topics found</p>
       )}
     </main>
-    
   );
 }
 
 export default CardsDiv;
-
