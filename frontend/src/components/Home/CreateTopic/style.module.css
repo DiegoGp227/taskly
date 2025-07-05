@@ -1,6 +1,6 @@
 .button {
     width: 300px;
-    height: 179px;
+    height: 200px;
     background-color: var(--font-color-blue);
     border-radius: var(--border-radius);
     cursor: pointer;

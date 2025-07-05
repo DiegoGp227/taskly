@@ -9,15 +9,6 @@ function HomePage() {
     <>
       <Header />
       <CardsDiv />
-      {/* <main className={style.main}>
-        <CreateTopic />
-        <TopicCard id={2} title="hello" description="lorem"/>
-        <TopicCard id={2} title="hello" description="lorem"/>
-        <TopicCard id={2} title="hello" description="lorem"/>
-        <TopicCard id={2} title="hello" description="lorem"/>
-        <TopicCard id={2} title="hello" description="lorem"/>
-        <TopicCard id={2} title="hello" description="lorem"/>
-      </main> */}
     </>
   );
 }
