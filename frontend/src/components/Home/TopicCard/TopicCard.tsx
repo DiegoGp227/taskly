@@ -1,6 +1,7 @@
 import TopicInfo from "../TopicInfo/TopicInfo";
 import EditCard from "../EditCard/EditCard";
 import DeleteCard from "../DeleteCard/DeleteCard";
+import { useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 
 interface CardInfo {
@@ -10,12 +11,17 @@ interface CardInfo {
 }
 
 function TopicCard({ id, title, description }: CardInfo) {
+  const navigate = useNavigate();
+
+  const redirect = () => {
+    navigate(`/tasks/${id}`);
+  };
+
   return (
-    <div className={style.divCard}>
+    <div className={style.divCard} onClick={redirect}>
       <div className={style.divMain}>
         <h1 className={style.titleMain}>{title}</h1>
         <p className={style.pMain}>
-          {id}
           {description}
         </p>
       </div>
