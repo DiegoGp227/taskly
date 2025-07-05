@@ -16,12 +16,12 @@
   transition: var(--transition-time);
 }
 
-.buttonCard:hover {
+.divCard:hover {
   scale: var(--escale);
   border: 2px solid var(--background-actions)
 }
 
-.buttonCard:hover .titleMain{
+.divCard:hover .titleMain{
   color: var(--background-actions);
 }
 
