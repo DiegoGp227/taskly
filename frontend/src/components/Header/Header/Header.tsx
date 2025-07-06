@@ -1,5 +1,7 @@
 import Logo from "../Logo/Logo.tsx";
 import ProfileButton from "../../../components/Header/ProfileButton/ProfileButton.tsx";
+import { Link } from "react-router-dom";
+
 import style from "./style.module.css";
 
 function Header() {
@@ -8,8 +10,10 @@ function Header() {
       <div>
         <Logo />
       </div>
-      <div >
-        <a href="" className={style.title} >taskly</a>
+      <div>
+        <Link to="/home" className={style.title}>
+          taskly
+        </Link>
       </div>
       <div className={style.imgDiv}>
         <ProfileButton />
