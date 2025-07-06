@@ -12,12 +12,13 @@ const PORT = process.env.PORT;
 // Configuration
 const app = express();
 
-
 const corsConfiguration = {
-    origin: 'http://localhost:5173', 
-    credentials: true, 
+  origin: [
+    "http://localhost:5173",
+    "https://5db5-190-25-164-252.ngrok-free.app"
+  ],
+  credentials: true,
 };
-
 app.use(cors(corsConfiguration));
 app.use(cookieParser());
 app.use(express.json());

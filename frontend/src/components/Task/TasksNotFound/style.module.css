@@ -1,0 +1,20 @@
+.taskDiv {
+  width: 95%;
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+  margin: 10px 0;
+}
+
+.text {
+    color: #ccc;
+    font-size: 1rem;
+}
+
+.svg {
+    width: 20px;
+    height: 20px;
+}

@@ -1,5 +1,6 @@
 import style from "./style.module.css";
 import TaskDiv from "../taskDiv";
+import TaskNotFound from "../TasksNotFound";
 import { useState, useEffect } from "react";
 
 interface TaskListProps {
@@ -63,7 +64,7 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
           
         ))
       ) : (
-        <h1>None Info</h1>
+        <TaskNotFound />
       )}
       </div>
     </section>

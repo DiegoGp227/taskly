@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/signup" element={<SingUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SingUpPage />}  />
         <Route path="/home" element={<HomePage />} />
         <Route path="/tasks/:idTopic" element={<TaskPage />} />
         <Route path="/*" element={<NotFound />} />
