@@ -18,7 +18,7 @@ function CardsDiv() {
     if (storedUserId) {
       setUserId(storedUserId);
     }
-  }, []); 
+  }, []);
 
   useEffect(() => {
     if (!userId) return;
@@ -49,7 +49,7 @@ function CardsDiv() {
     }
 
     getTopics();
-  }, [userId]); 
+  }, [userId]);
 
   return (
     <main className={style.main} id="main">

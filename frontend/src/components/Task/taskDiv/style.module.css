@@ -1,0 +1,25 @@
+.taskDiv {
+  width: 95%;
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+  margin: 10px 0;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.labelText {
+  color: var(--font-color-white);
+}
+
+.configurationDiv {
+  display: flex;
+  gap: 5px;
+}
+
+/**/

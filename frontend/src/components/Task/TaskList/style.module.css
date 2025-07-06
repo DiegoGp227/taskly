@@ -1,50 +1,29 @@
 .taskSection {
-    width: 45%;
-    height: 600px;
-    border: 2px solid var(--border-color);
+  width: 45%;
+  height: 600px;
+  border: 2px solid var(--border-color);
 }
 
-.taskContainer{
-    display: flex;
-    justify-content: center;
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .titleDiv {
-    margin: 10px;
-    display: flex;
-    justify-content: center;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .title {
-    font-size: 30px;
-    color: var(--font-color-white);
-}
-
-.taskDiv {
-    width: 95%;
-    padding: 10px 0 10px 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    border-top: 2px solid var(--border-color);
-    border-bottom: 2px solid var(--border-color);
-}
-
-.labelText {
-    color: var(--font-color-white);
-}
-
-.checkbox {
-    margin-right: 10px;
-}
-
-.configurationDiv {
-    display: flex;
-    gap: 5px;
+  font-size: 30px;
+  color: var(--font-color-white);
 }
 
 /* // */
-
 .checkbox {
   display: none;
 }
@@ -65,7 +44,7 @@
 }
 
 .labelText::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 20px;
   height: 20px;
