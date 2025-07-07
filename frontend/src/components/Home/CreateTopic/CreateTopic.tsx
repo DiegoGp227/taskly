@@ -1,18 +1,32 @@
 import NewTopicDiv from "../NewTopicDiv/index.tsx";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import style from "./style.module.css";
 
 function CreateTopic() {
   const [newTopicStatus, setNewTopicStatus] = useState<boolean>(false);
+  const refTopic = useRef<HTMLDivElement>(null);
+
+  function changeTopicStatus() {
+    newTopicStatus ? setNewTopicStatus(false) : setNewTopicStatus(true);
+  }
+
+  useEffect(() => {
+    const clickedOutside = (e: MouseEvent) => {
+      if (refTopic.current && !refTopic.current.contains(e.target as Node)) {
+        setNewTopicStatus(false)
+      }
+    };
+
+    document.addEventListener("mousedown", clickedOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", clickedOutside);
+    };
+  }, []);
 
   return (
     <>
-      <button
-        className={style.button}
-        onClick={() =>
-          newTopicStatus ? setNewTopicStatus(false) : setNewTopicStatus(true) 
-        }
-      >
+      <button className={style.button} onClick={() => changeTopicStatus()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -32,7 +46,13 @@ function CreateTopic() {
           />
         </svg>
       </button>
-      {newTopicStatus ? <NewTopicDiv /> : null } 
+      <div
+        ref={refTopic}
+        className={style.divTest}
+        style={{ display: newTopicStatus ? "block" : "none" }}
+      >
+        <NewTopicDiv />
+      </div>
     </>
   );
 }
