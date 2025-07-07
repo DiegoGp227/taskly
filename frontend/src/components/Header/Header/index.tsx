@@ -1,5 +1,5 @@
 import Logo from "../Logo/Logo.tsx";
-import ProfileButton from "../../../components/Header/ProfileButton/ProfileButton.tsx";
+import ProfileButton from "../ProfileButton/ProfileButton.tsx";
 import { Link } from "react-router-dom";
 
 import style from "./style.module.css";

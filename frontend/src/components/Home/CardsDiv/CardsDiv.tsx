@@ -41,6 +41,7 @@ function CardsDiv() {
         }
 
         const data = await response.json();
+        data.reverse()
         setTopics(data);
         console.log("Data recibida con éxito:", data);
       } catch (error: any) {

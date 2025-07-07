@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header/Header";
+import Header from "../../components/Header/Header/index.tsx";
 import NewTask from "../../components/Task/NewTask/NewTask";
 import TaskList from "../../components/Task/TaskList/TaskList";
 import { useEffect, useState } from "react";
