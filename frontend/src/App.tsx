@@ -13,7 +13,7 @@ function App() {
         <Route path="/signup" element={<SingUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/tasks/:idTopic" element={<TaskPage />} />
+        <Route path="/tasks/:idTopic/:titleTopic" element={<TaskPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </>

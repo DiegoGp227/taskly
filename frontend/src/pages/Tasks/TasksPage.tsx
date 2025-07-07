@@ -7,7 +7,7 @@ import style from "./style.module.css";
 
 function TaskPage() {
   const [id, setId] = useState<number | undefined>();
-  const { idTopic } = useParams();
+  const { idTopic, titleTopic } = useParams();
 
   useEffect(() => {
     if (idTopic !== undefined) {
@@ -19,7 +19,7 @@ function TaskPage() {
         console.warn("El id no es un número válido:", idTopic);
       }
     }
-  }, [idTopic]); // ✅ corregido
+  }, [idTopic]); 
 
   return (
     <>
@@ -27,7 +27,7 @@ function TaskPage() {
       <main className={style.main}>
         <section className={style.firstSection}>
           <div className={style.divTitle}>
-            <h1 className={style.title}>Womens</h1>
+            <h1 className={style.title}>{titleTopic}</h1>
           </div>
           <div className={style.divbutton}>
             <NewTask />

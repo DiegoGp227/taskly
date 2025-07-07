@@ -5,7 +5,6 @@ import style from "./style.module.css";
 
 
 function CreateTopic() {
-
   const [newTopicStatus, setNewTopicStatus] = useState<boolean>(false);
   const refTopic = useRef<HTMLDivElement>(null);
 

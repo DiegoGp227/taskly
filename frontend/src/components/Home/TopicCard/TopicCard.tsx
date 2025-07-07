@@ -14,7 +14,7 @@ function TopicCard({ id, title, description }: CardInfo) {
   const navigate = useNavigate();
 
   const redirect = () => {
-    navigate(`/tasks/${id}`);
+    navigate(`/tasks/${id}/${title}`);
   };
 
   return (
