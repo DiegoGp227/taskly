@@ -2,7 +2,10 @@ import NewTopicDiv from "../NewTopicDiv/index.tsx";
 import { useState, useEffect, useRef } from "react";
 import style from "./style.module.css";
 
+
+
 function CreateTopic() {
+
   const [newTopicStatus, setNewTopicStatus] = useState<boolean>(false);
   const refTopic = useRef<HTMLDivElement>(null);
 
@@ -13,7 +16,7 @@ function CreateTopic() {
   useEffect(() => {
     const clickedOutside = (e: MouseEvent) => {
       if (refTopic.current && !refTopic.current.contains(e.target as Node)) {
-        setNewTopicStatus(false)
+        setNewTopicStatus(false);
       }
     };
 
