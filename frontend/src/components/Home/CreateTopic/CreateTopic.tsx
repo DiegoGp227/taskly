@@ -2,9 +2,11 @@ import NewTopicDiv from "../NewTopicDiv/index.tsx";
 import { useState, useEffect, useRef } from "react";
 import style from "./style.module.css";
 
+interface renderingProps {
+  changeRendering: () => void;
+}
 
-
-function CreateTopic() {
+function CreateTopic({ changeRendering }: renderingProps) {
   const [newTopicStatus, setNewTopicStatus] = useState<boolean>(false);
   const refTopic = useRef<HTMLDivElement>(null);
 
@@ -53,7 +55,7 @@ function CreateTopic() {
         className={style.divTest}
         style={{ display: newTopicStatus ? "block" : "none" }}
       >
-        <NewTopicDiv />
+        <NewTopicDiv changeRendering={changeRendering}/>
       </div>
     </>
   );

@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
-function NewTopicsDiv() {
+interface renderingProps {
+  changeRendering: () => void
+}
+
+function NewTopicsDiv( {changeRendering}: renderingProps ) {
   const [user_id, setUserId] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -35,6 +39,7 @@ function NewTopicsDiv() {
           throw new Error(error.message || "Error al obtener topics");
         }
         console.log("Data añadida con éxito:", data);
+        changeRendering()
       } catch (error: any) {
         console.error("Error en el fetch:", error.message);
       }

@@ -6,6 +6,7 @@ import style from "./style.module.css";
 function CardsDiv() {
   const [userId, setUserId] = useState<string>("");
   const [topics, setTopics] = useState<topicsData>();
+  const [rendering, setRendering] = useState<boolean>(false);
 
   type topicsData = {
     id: number;
@@ -13,6 +14,9 @@ function CardsDiv() {
     description: string;
   }[];
 
+  function changeRendering() {
+    rendering ? setRendering(false) : setRendering(true);
+  }
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
     if (storedUserId) {
@@ -41,7 +45,7 @@ function CardsDiv() {
         }
 
         const data = await response.json();
-        data.reverse()
+        data.reverse();
         setTopics(data);
         console.log("Data recibida con éxito:", data);
       } catch (error: any) {
@@ -50,11 +54,11 @@ function CardsDiv() {
     }
 
     getTopics();
-  }, [userId]);
+  }, [userId, rendering]);
 
   return (
     <main className={style.main} id="main">
-      <CreateTopic />
+      <CreateTopic changeRendering={changeRendering} />
       {topics && topics.length > 0 ? (
         topics.map((topic) => (
           <TopicCard
