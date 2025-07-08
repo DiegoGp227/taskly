@@ -9,6 +9,7 @@ interface renderingProps {
 function CreateTopic({ changeRendering }: renderingProps) {
   const [newTopicStatus, setNewTopicStatus] = useState<boolean>(false);
   const refTopic = useRef<HTMLDivElement>(null);
+  const refButton = useRef<HTMLButtonElement>(null);
 
   function changeTopicStatus() {
     newTopicStatus ? setNewTopicStatus(false) : setNewTopicStatus(true);
@@ -16,7 +17,8 @@ function CreateTopic({ changeRendering }: renderingProps) {
 
   useEffect(() => {
     const clickedOutside = (e: MouseEvent) => {
-      if (refTopic.current && !refTopic.current.contains(e.target as Node)) {
+
+      if (refTopic.current && !refTopic.current.contains(e.target as Node) && refButton.current && !refButton.current.contains(e.target as Node)) {
         setNewTopicStatus(false);
       }
     };
@@ -30,7 +32,7 @@ function CreateTopic({ changeRendering }: renderingProps) {
 
   return (
     <>
-      <button className={style.button} onClick={() => changeTopicStatus()}>
+      <button className={style.button} ref={refButton} onClick={() => changeTopicStatus()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
