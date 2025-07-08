@@ -17,7 +17,7 @@
 }
 
 .divCard:hover {
-  scale: var(--escale);
+  /* scale: var(--escale); */
   border: 2px solid var(--background-actions)
 }
 
