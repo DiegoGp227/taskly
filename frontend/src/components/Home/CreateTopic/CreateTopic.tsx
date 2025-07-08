@@ -17,7 +17,6 @@ function CreateTopic({ changeRendering }: renderingProps) {
 
   useEffect(() => {
     const clickedOutside = (e: MouseEvent) => {
-
       if (refTopic.current && !refTopic.current.contains(e.target as Node) && refButton.current && !refButton.current.contains(e.target as Node)) {
         setNewTopicStatus(false);
       }
@@ -57,7 +56,7 @@ function CreateTopic({ changeRendering }: renderingProps) {
         className={style.divTest}
         style={{ display: newTopicStatus ? "block" : "none" }}
       >
-        <NewTopicDiv changeRendering={changeRendering}/>
+        <NewTopicDiv changeRendering={changeRendering} changeTopicStatus={changeTopicStatus} />
       </div>
     </>
   );

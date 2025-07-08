@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
 interface renderingProps {
-  changeRendering: () => void
+  changeRendering: () => void,
+  changeTopicStatus: () => void
 }
 
-function NewTopicsDiv( {changeRendering}: renderingProps ) {
+function NewTopicsDiv( {changeRendering, changeTopicStatus}: renderingProps ) {
   const [user_id, setUserId] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -40,6 +41,7 @@ function NewTopicsDiv( {changeRendering}: renderingProps ) {
         }
         console.log("Data añadida con éxito:", data);
         changeRendering()
+        changeTopicStatus()
       } catch (error: any) {
         console.error("Error en el fetch:", error.message);
       }
