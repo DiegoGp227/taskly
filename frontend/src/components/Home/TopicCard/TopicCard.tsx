@@ -21,9 +21,7 @@ function TopicCard({ id, title, description }: CardInfo) {
     <div className={style.divCard} onClick={redirect}>
       <div className={style.divMain}>
         <h1 className={style.titleMain}>{title}</h1>
-        <p className={style.pMain}>
-          {description}
-        </p>
+        <p className={style.pMain}>{description}</p>
       </div>
       <div className={style.divInfoConfiguration}>
         <div className={style.topicInfoDiv}>
@@ -31,7 +29,7 @@ function TopicCard({ id, title, description }: CardInfo) {
         </div>
         <div className={style.configurationDiv}>
           <EditCard />
-          <DeleteCard />
+          <DeleteCard id={id} />
         </div>
       </div>
     </div>

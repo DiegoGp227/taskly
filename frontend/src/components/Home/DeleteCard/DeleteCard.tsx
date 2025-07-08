@@ -1,8 +1,48 @@
+import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
-function DeleteCard() {
+interface deleteProps {
+  id: number;
+}
+
+function DeleteCard({ id }: deleteProps) {
+  const [topicId, setTopicId] = useState<number>();
+
+  useEffect(() => {
+    setTopicId(id);
+  }, [id]);
+
+  async function deleteTopic() {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/topics/${topicId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Error al eliminar el tema");
+      }
+      console.log("Tema eliminado con exito");
+    } catch (error: any) {
+      console.error("Error en el fetch:", error.message);
+    }
+  }
+
   return (
-    <button className={style.deleteButton}>
+    <button
+      className={style.deleteButton}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        deleteTopic();
+      }}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
