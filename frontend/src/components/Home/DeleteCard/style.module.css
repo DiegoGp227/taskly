@@ -6,6 +6,11 @@
   justify-content: center;
   background: none;
   border: none;
+  transition: var(--transition-time);
+}
+
+.deleteButton:hover {
+  scale: var(--escale);
 }
 
 .svg {
