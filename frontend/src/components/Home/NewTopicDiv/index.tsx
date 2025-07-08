@@ -42,6 +42,8 @@ function NewTopicsDiv( {changeRendering, changeTopicStatus}: renderingProps ) {
         console.log("Data añadida con éxito:", data);
         changeRendering()
         changeTopicStatus()
+        setTitle("")
+        setDescription("")
       } catch (error: any) {
         console.error("Error en el fetch:", error.message);
       }
@@ -51,11 +53,12 @@ function NewTopicsDiv( {changeRendering, changeTopicStatus}: renderingProps ) {
   return (
     <div className={style.generalDiv}>
       <h1 className={style.title}>Add new topic</h1>
-      <form action="" className={style.form} onSubmit={sendData}>
+      <form className={style.form} onSubmit={sendData}>
         <input
           type="text"
           className={style.input}
           placeholder="Title"
+          value={title}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
@@ -65,6 +68,7 @@ function NewTopicsDiv( {changeRendering, changeTopicStatus}: renderingProps ) {
           id=""
           placeholder="Description"
           className={style.textArea}
+          value={description}
           onChange={(e) => {
             setDescription(e.target.value);
           }}
