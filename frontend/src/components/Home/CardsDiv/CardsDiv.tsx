@@ -65,6 +65,7 @@ function CardsDiv() {
             id={topic.id}
             title={topic.title}
             description={topic.description}
+            changeRendering={changeRendering}
           />
         ))
       ) : (

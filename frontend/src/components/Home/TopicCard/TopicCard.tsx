@@ -8,9 +8,10 @@ interface CardInfo {
   id: number;
   title: string;
   description: string;
+  changeRendering: () => void;
 }
 
-function TopicCard({ id, title, description }: CardInfo) {
+function TopicCard({ id, title, description, changeRendering }: CardInfo) {
   const navigate = useNavigate();
 
   const redirect = () => {
@@ -29,7 +30,7 @@ function TopicCard({ id, title, description }: CardInfo) {
         </div>
         <div className={style.configurationDiv}>
           <EditCard />
-          <DeleteCard id={id} />
+          <DeleteCard id={id} changeRendering={changeRendering} />
         </div>
       </div>
     </div>

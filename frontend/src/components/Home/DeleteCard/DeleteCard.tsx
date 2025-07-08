@@ -3,9 +3,10 @@ import style from "./style.module.css";
 
 interface deleteProps {
   id: number;
+  changeRendering: () => void;
 }
 
-function DeleteCard({ id }: deleteProps) {
+function DeleteCard({ id, changeRendering }: deleteProps) {
   const [topicId, setTopicId] = useState<number>();
 
   useEffect(() => {
@@ -41,6 +42,7 @@ function DeleteCard({ id }: deleteProps) {
         e.preventDefault();
         e.stopPropagation();
         deleteTopic();
+        changeRendering()
       }}
     >
       <svg
