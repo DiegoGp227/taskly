@@ -1,5 +1,5 @@
-import DeleteTask from "../DeleteTask/DeleteTask";
-import EditTask from "../EditTask/EditTask";
+import DeleteTask from "../DeleteTask";
+import EditTask from "../EditTask";
 import style from "./style.module.css";
 
 interface tasks {

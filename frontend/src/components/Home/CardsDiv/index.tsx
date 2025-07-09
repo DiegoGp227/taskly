@@ -1,5 +1,5 @@
-import TopicCard from "../TopicCard/TopicCard";
-import CreateTopic from "../CreateTopic/CreateTopic";
+import TopicCard from "../TopicCard";
+import CreateTopic from "../CreateTopic";
 import { useState, useEffect } from "react";
 import style from "./style.module.css";
 

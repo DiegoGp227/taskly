@@ -1,6 +1,6 @@
 import Header from "../../components/Header/Header/index.tsx";
-import NewTask from "../../components/Task/NewTask/NewTask";
-import TaskList from "../../components/Task/TaskList/TaskList";
+import NewTask from "../../components/Task/NewTask/index.tsx";
+import TaskList from "../../components/Task/TaskList/index.tsx";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import style from "./style.module.css";

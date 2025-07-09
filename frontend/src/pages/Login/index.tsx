@@ -1,5 +1,5 @@
-import FormLogin from "../../components/Auth/FormLogin/FormLogin.tsx";
-import CreateAccount from "../../components/Auth/CreateAccount/CreateAccount.tsx";
+import FormLogin from "../../components/Auth/FormLogin/index.tsx";
+import CreateAccount from "../../components/Auth/CreateAccount/index.tsx";
 import style from "./style.module.css";
 
 function LoginPage() {

@@ -1,6 +1,6 @@
-import TopicInfo from "../TopicInfo/TopicInfo";
-import EditCard from "../EditCard/EditCard";
-import DeleteCard from "../DeleteCard/DeleteCard";
+import TopicInfo from "../TopicInfo";
+import EditCard from "../index/EditCard";
+import DeleteCard from "../DeleteCard";
 import { useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 
