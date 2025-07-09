@@ -1,37 +1,14 @@
-import NewTopicDiv from "../NewTopicDiv/index.tsx";
-import { useState, useEffect, useRef } from "react";
 import style from "./style.module.css";
 
 interface renderingProps {
-  changeRendering: () => void;
+  changeVisivilityNew: () => void;
 }
 
-function CreateTopic({ changeRendering }: renderingProps) {
-  const [newTopicStatus, setNewTopicStatus] = useState<boolean>(false);
-  const refTopic = useRef<HTMLDivElement>(null);
-  const refButton = useRef<HTMLButtonElement>(null);
-
-  function changeTopicStatus() {
-    newTopicStatus ? setNewTopicStatus(false) : setNewTopicStatus(true);
-  }
-
-  useEffect(() => {
-    const clickedOutside = (e: MouseEvent) => {
-      if (refTopic.current && !refTopic.current.contains(e.target as Node) && refButton.current && !refButton.current.contains(e.target as Node)) {
-        setNewTopicStatus(false);
-      }
-    };
-
-    document.addEventListener("mousedown", clickedOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", clickedOutside);
-    };
-  }, []);
+function CreateTopic({ changeVisivilityNew }: renderingProps) {
 
   return (
     <>
-      <button className={style.button} ref={refButton} onClick={() => changeTopicStatus()}>
+      <button className={style.button} onClick={() => changeVisivilityNew()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -51,13 +28,6 @@ function CreateTopic({ changeRendering }: renderingProps) {
           />
         </svg>
       </button>
-      <div
-        ref={refTopic}
-        className={style.divTest}
-        style={{ display: newTopicStatus ? "block" : "none" }}
-      >
-        <NewTopicDiv changeRendering={changeRendering} changeTopicStatus={changeTopicStatus} />
-      </div>
     </>
   );
 }

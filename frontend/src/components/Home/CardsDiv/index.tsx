@@ -3,20 +3,29 @@ import CreateTopic from "../CreateTopic";
 import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
-function CardsDiv() {
+interface CardsDivProps {
+  changeVisivilityNew: () => void;
+  changeRendering: () => void;
+  changeVisivilityEdit: () => void;
+
+  renderingStatus: boolean;
+}
+
+type topicsData = {
+  id: number;
+  title: string;
+  description: string;
+}[];
+
+function CardsDiv({
+  changeVisivilityNew,
+  renderingStatus,
+  changeRendering,
+  changeVisivilityEdit
+}: CardsDivProps) {
   const [userId, setUserId] = useState<string>("");
   const [topics, setTopics] = useState<topicsData>();
-  const [rendering, setRendering] = useState<boolean>(false);
 
-  type topicsData = {
-    id: number;
-    title: string;
-    description: string;
-  }[];
-
-  function changeRendering() {
-    rendering ? setRendering(false) : setRendering(true);
-  }
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
     if (storedUserId) {
@@ -54,11 +63,11 @@ function CardsDiv() {
     }
 
     getTopics();
-  }, [userId, rendering]);
+  }, [userId, renderingStatus]);
 
   return (
-    <main className={style.main} id="main">
-      <CreateTopic changeRendering={changeRendering} />
+    <main className={style.main}>
+      <CreateTopic changeVisivilityNew={changeVisivilityNew} />
       {topics && topics.length > 0 ? (
         topics.map((topic) => (
           <TopicCard
@@ -66,6 +75,7 @@ function CardsDiv() {
             title={topic.title}
             description={topic.description}
             changeRendering={changeRendering}
+            changeVisivilityEdit={changeVisivilityEdit}
           />
         ))
       ) : (

@@ -9,9 +9,10 @@ interface CardInfo {
   title: string;
   description: string;
   changeRendering: () => void;
+  changeVisivilityEdit: () => void;
 }
 
-function TopicCard({ id, title, description, changeRendering }: CardInfo) {
+function TopicCard({ id, title, description, changeRendering, changeVisivilityEdit }: CardInfo) {
   const navigate = useNavigate();
 
   const redirect = () => {
@@ -29,7 +30,7 @@ function TopicCard({ id, title, description, changeRendering }: CardInfo) {
           <TopicInfo />
         </div>
         <div className={style.configurationDiv}>
-          <EditCard />
+          <EditCard changeVisivilityEdit={changeVisivilityEdit} />
           <DeleteCard id={id} changeRendering={changeRendering} />
         </div>
       </div>

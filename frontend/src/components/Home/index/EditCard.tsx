@@ -1,8 +1,19 @@
 import style from "./style.module.css";
 
-function EditCard() {
+interface editCardProps {
+  changeVisivilityEdit: () => void;
+}
+
+function EditCard({ changeVisivilityEdit }: editCardProps) {
   return (
-    <button className={style.editButton}>
+    <button
+      className={style.editButton}
+      onClick={(e) => {
+        e.preventDefault();
+        changeVisivilityEdit()
+        e.stopPropagation();
+      }}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

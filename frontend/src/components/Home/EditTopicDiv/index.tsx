@@ -1,11 +1,13 @@
 import style from "./style.module.css";
 
-function EditTopicDiv() {
-    
+interface editTopicsProps {
+  displayStatus: string;
+  // changeVisivilityEdit: () => void;
+}
 
-
+function EditTopicDiv({ displayStatus }: editTopicsProps) {
   return (
-    <div className={style.generalDiv}>
+    <div className={style.generalDiv} style={{ display: displayStatus }}>
       <h1 className={style.title}>Edit topic</h1>
       <form className={style.form}>
         <input type="text" className={style.input} placeholder="Title" />

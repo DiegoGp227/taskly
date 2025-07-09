@@ -1,12 +1,23 @@
 import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
-interface renderingProps {
-  changeRendering: () => void,
-  changeTopicStatus: () => void
+// interface renderingProps {
+//   changeRendering: () => void;
+//   changeTopicStatus: () => void;
+// }
+
+interface newTopicsProps {
+  displayStatus: string;
+  changeRendering: () => void;
+  changeVisivilityNew: () => void;
 }
 
-function NewTopicsDiv( {changeRendering, changeTopicStatus}: renderingProps ) {
+// function NewTopicsDiv({ changeRendering, changeTopicStatus }: renderingProps) {
+function NewTopicsDiv({
+  displayStatus,
+  changeRendering,
+  changeVisivilityNew,
+}: newTopicsProps) {
   const [user_id, setUserId] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -40,10 +51,10 @@ function NewTopicsDiv( {changeRendering, changeTopicStatus}: renderingProps ) {
           throw new Error(error.message || "Error al obtener topics");
         }
         console.log("Data añadida con éxito:", data);
-        changeRendering()
-        changeTopicStatus()
-        setTitle("")
-        setDescription("")
+        changeRendering();
+        changeVisivilityNew();
+        setTitle("");
+        setDescription("");
       } catch (error: any) {
         console.error("Error en el fetch:", error.message);
       }
@@ -51,7 +62,7 @@ function NewTopicsDiv( {changeRendering, changeTopicStatus}: renderingProps ) {
   }
 
   return (
-    <div className={style.generalDiv}>
+    <div className={style.generalDiv} style={{ display: displayStatus }}>
       <h1 className={style.title}>Add new topic</h1>
       <form className={style.form} onSubmit={sendData}>
         <input
