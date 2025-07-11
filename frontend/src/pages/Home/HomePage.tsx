@@ -2,24 +2,37 @@ import Header from "../../components/Header/Header/index.tsx";
 import CardsDiv from "../../components/Home/CardsDiv/index.tsx";
 import NewTopicsDiv from "../../components/Home/NewTopicDiv/index.tsx";
 import EditTopicDiv from "../../components/Home/EditTopicDiv/index.tsx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function HomePage() {
-  const [newTopicVisibility, setNewTopicVisibility] = useState<boolean>(false);
-  const [displayNew, setDisplayNew] = useState<string>("flex");
   const [editTopicVisibility, setEditTopicVisibility] =useState<boolean>(false);
   const [displayEdit, setDisplayEdit] = useState<string>("flex");
   const [rendering, setRendering] = useState<boolean>(false);
+  const refNewForm = useRef<HTMLDialogElement>(null)
+
+
+  // function changeVisivilityNew() {
+  //   newTopicVisibility
+  //     ? setNewTopicVisibility(false)
+  //     : setNewTopicVisibility(true);
+  // }
 
   function changeVisivilityNew() {
-    newTopicVisibility
-      ? setNewTopicVisibility(false)
-      : setNewTopicVisibility(true);
+    if (refNewForm.current) {
+      refNewForm.current.showModal()
+    }
   }
 
-  useEffect(() => {
-    newTopicVisibility ? setDisplayNew("flex") : setDisplayNew("none");
-  }, [newTopicVisibility]);
+  function changeVisivilityNewS() {
+    if (refNewForm.current){
+      refNewForm.current.close()
+    }
+  }
+
+
+  // useEffect(() => {
+  //   newTopicVisibility ? setDisplayNew("flex") : setDisplayNew("none");
+  // }, [newTopicVisibility]);
 
   function changeRendering() {
     rendering ? setRendering(false) : setRendering(true);
@@ -45,7 +58,7 @@ function HomePage() {
         changeRendering={changeRendering}
       />
       <NewTopicsDiv
-        displayStatus={displayNew}
+        refNewForm={refNewForm}
         changeRendering={changeRendering}
         changeVisivilityNew={changeVisivilityNew}
       />

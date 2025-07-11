@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
-// interface renderingProps {
-//   changeRendering: () => void;
-//   changeTopicStatus: () => void;
-// }
-
 interface newTopicsProps {
-  displayStatus: string;
   changeRendering: () => void;
   changeVisivilityNew: () => void;
+  refNewForm: React.Ref<HTMLDialogElement>;
+  changeVisivilityNewS: () => void;
 }
 
-// function NewTopicsDiv({ changeRendering, changeTopicStatus }: renderingProps) {
 function NewTopicsDiv({
-  displayStatus,
+  refNewForm,
   changeRendering,
   changeVisivilityNew,
 }: newTopicsProps) {
@@ -62,33 +57,35 @@ function NewTopicsDiv({
   }
 
   return (
-    <div className={style.generalDiv} style={{ display: displayStatus }}>
-      <h1 className={style.title}>Add new topic</h1>
-      <form className={style.form} onSubmit={sendData}>
-        <input
-          type="text"
-          className={style.input}
-          placeholder="Title"
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <textarea
-          name=""
-          id=""
-          placeholder="Description"
-          className={style.textArea}
-          value={description}
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-        ></textarea>
-        <button type="submit" className={style.button}>
-          Send
-        </button>
-      </form>
-    </div>
+    <dialog ref={refNewForm}>
+      <div className={style.generalDiv}>
+        <h1 className={style.title}>Add new topic</h1>
+        <form className={style.form} action="dialog" onSubmit={sendData}>
+          <input
+            type="text"
+            className={style.input}
+            placeholder="Title"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
+          <textarea
+            name=""
+            id=""
+            placeholder="Description"
+            className={style.textArea}
+            value={description}
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          ></textarea>
+          <button type="submit" className={style.button}>
+            Send
+          </button>
+        </form>
+      </div>
+    </dialog>
   );
 }
 export default NewTopicsDiv;
