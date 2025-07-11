@@ -9,9 +9,10 @@ interface tasks {
   title: string;
   priority?: number;
   status?: number;
+  stateDelect: () => void;
 }
 
-function TaskDiv({ title, id }: tasks) {
+function TaskDiv({ title, id, stateDelect }: tasks) {
   return (
     <div className={style.taskDiv}>
       <div className={style.divText}>
@@ -24,7 +25,7 @@ function TaskDiv({ title, id }: tasks) {
       </div>
       <div className={style.configurationDiv}>
         <EditTask />
-        <DeleteTask id={id} />
+        <DeleteTask id={id} stateDelectClick={stateDelect} />
       </div>
     </div>
   );

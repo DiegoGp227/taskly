@@ -2,13 +2,15 @@ import style from "./style.module.css";
 
 interface Prop {
   id: number;
+  stateDelectClick: () => void;
 }
 
-function DeleteTask({ id }: Prop) {
+function DeleteTask({ id, stateDelectClick }: Prop) {
   const DelectTasks = () => {
     fetch(`http://localhost:5000/api/tasks/${id}`, {
       method: "DELETE",
     });
+    stateDelectClick(true);
   };
   return (
     <button
