@@ -1,8 +1,22 @@
 import style from "./style.module.css";
 
-function DeleteTask() {
+interface Prop {
+  id: number;
+}
+
+function DeleteTask({ id }: Prop) {
+  const DelectTasks = () => {
+    fetch(`http://localhost:5000/api/tasks/${id}`, {
+      method: "DELETE",
+    });
+  };
   return (
-    <button className={style.button} >
+    <button
+      className={style.button}
+      onClick={() => {
+        DelectTasks();
+      }}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

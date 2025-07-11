@@ -16,7 +16,8 @@ interface tasksData {
   title: string;
   priority: number;
   status: number;
-}[];
+}
+[];
 
 function TaskList({ title, id, tasksStatus }: TaskListProps) {
   const [tasks, setTasks] = useState<tasksData[] | undefined>();
@@ -50,7 +51,7 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
     if (id !== undefined && tasksStatus !== undefined) {
       getTasks();
     }
-  }, [id, tasksStatus]); 
+  }, [id, tasksStatus]);
 
   return (
     <section className={style.taskSection}>
@@ -58,14 +59,11 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
         <h2 className={style.title}>{title}</h2>
       </div>
       <div className={style.taskContainer}>
-        {tasks && tasks.length > 0 ?  (
-        tasks.map((task) => (
-          <TaskDiv title={task.title} id={task.id}/>
-          
-        ))
-      ) : (
-        <TaskNotFound />
-      )}
+        {tasks && tasks.length > 0 ? (
+          tasks.map((task) => <TaskDiv title={task.title} id={task.id} />)
+        ) : (
+          <TaskNotFound />
+        )}
       </div>
     </section>
   );

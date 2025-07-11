@@ -1,26 +1,22 @@
 import style from "./style.module.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
-function NewTask({ Ref }) {
+interface Prop {
+  Ref: React.Ref<HTMLButtonElement>;
+}
+
+function NewTask({ Ref }: Prop) {
   const userId = localStorage.getItem("userId");
-  const CreateTask = () => {
-    fetch("http://localhost:5000/api/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId,
-      }),
-    });
-  };
-
   return (
     <>
       <button
         className={style.button}
         onClick={() => {
-          Ref.current.showModal();
+          if (Ref.current) {
+            Ref.current.showModal();
+          } else {
+            console.warn("Se fue todo a la cascara");
+          }
         }}
       >
         <p className={style.p}>New</p>

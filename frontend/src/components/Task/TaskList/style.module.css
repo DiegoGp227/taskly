@@ -1,7 +1,8 @@
 .taskSection {
   width: 45%;
-  height: 600px;
+  height: 480px;
   border: 2px solid var(--border-color);
+  overflow-y: scroll;
 }
 
 .taskContainer {
@@ -9,7 +10,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .titleDiv {

@@ -15,7 +15,6 @@ function TaskPage() {
       const idNumber = Number(idTopic);
       if (!isNaN(idNumber)) {
         setId(idNumber);
-        console.log("id is " + id);
       } else {
         console.warn("El id no es un número válido:", idTopic);
       }
@@ -36,8 +35,8 @@ function TaskPage() {
           </div>
         </section>
         <section className={style.secondSection}>
-          <TaskList title="To Do" id={id} tasksStatus={1} />
-          <TaskList title="Complete" id={id} tasksStatus={2} />
+          <TaskList title="To Do" id={id} tasksStatus={0} />
+          <TaskList title="Complete" id={id} tasksStatus={1} />
         </section>
       </main>
     </>

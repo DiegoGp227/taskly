@@ -24,7 +24,7 @@ function TaskDiv({ title, id }: tasks) {
       </div>
       <div className={style.configurationDiv}>
         <EditTask />
-        <DeleteTask />
+        <DeleteTask id={id} />
       </div>
     </div>
   );

@@ -55,7 +55,6 @@ function CardsDiv({
         const data = await response.json();
         data.reverse();
         setTopics(data);
-        console.log("Data recibida con éxito:", data);
       } catch (error: any) {
         console.error("Error en el fetch:", error.message);
       }
