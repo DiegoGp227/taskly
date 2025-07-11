@@ -7,7 +7,6 @@ interface CardsDivProps {
   changeVisivilityNew: () => void;
   changeRendering: () => void;
   changeVisivilityEdit: () => void;
-
   renderingStatus: boolean;
 }
 
@@ -21,7 +20,7 @@ function CardsDiv({
   changeVisivilityNew,
   renderingStatus,
   changeRendering,
-  changeVisivilityEdit
+  changeVisivilityEdit,
 }: CardsDivProps) {
   const [userId, setUserId] = useState<string>("");
   const [topics, setTopics] = useState<topicsData>();
