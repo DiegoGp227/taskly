@@ -16,22 +16,20 @@ interface tasksData {
   title: string;
   priority: number;
   status: number;
-}[];
+}
+[];
 
 function TaskList({ title, id, tasksStatus }: TaskListProps) {
   const [tasks, setTasks] = useState<tasksData[] | undefined>();
-
+  const [delectState, setDelectState] = useState<boolean>(false);
+  function changeStatus() {
+    delectState ? setDelectState(false) : setDelectState(true);
+  }
   useEffect(() => {
     async function getTasks() {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/tasks/${id}/${tasksStatus}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
+          `http://localhost:5000/api/tasks/${id}/${tasksStatus}`
         );
 
         if (!response.ok) {
@@ -41,7 +39,7 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
 
         const data = await response.json();
         setTasks(data);
-        console.log("Data recibida con éxito:", data);
+        console.log("Data recibida con éxito:", data); // este console.log no lo puse yo 😡
       } catch (error: any) {
         console.error("Error en el fetch:", error.message);
       }
@@ -50,7 +48,7 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
     if (id !== undefined && tasksStatus !== undefined) {
       getTasks();
     }
-  }, [id, tasksStatus]); 
+  }, [id, tasksStatus, delectState]);
 
   return (
     <section className={style.taskSection}>
@@ -58,14 +56,17 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
         <h2 className={style.title}>{title}</h2>
       </div>
       <div className={style.taskContainer}>
-        {tasks && tasks.length > 0 ?  (
-        tasks.map((task) => (
-          <TaskDiv title={task.title} id={task.id}/>
-          
-        ))
-      ) : (
-        <TaskNotFound />
-      )}
+        {tasks && tasks.length > 0 ? (
+          tasks.map((task) => (
+            <TaskDiv
+              title={task.title}
+              id={task.id}
+              stateDelect={changeStatus}
+            />
+          ))
+        ) : (
+          <TaskNotFound />
+        )}
       </div>
     </section>
   );
