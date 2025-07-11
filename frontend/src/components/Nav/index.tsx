@@ -5,7 +5,7 @@ const Nav = () => {
       <nav className={Style.nav}>
         <ul>
           <li>
-            <img src="../../../public/img/taskly.png" alt="" />
+            <img src="/img/taskly.png" alt="" />
           </li>
           <li>
             <p>create ta</p>
