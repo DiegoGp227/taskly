@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 function HomePage() {
   const [newTopicVisibility, setNewTopicVisibility] = useState<boolean>(false);
   const [displayNew, setDisplayNew] = useState<string>("flex");
-  const [editTopicVisibility, setEditTopicVisibility] =
-    useState<boolean>(false);
+  const [editTopicVisibility, setEditTopicVisibility] =useState<boolean>(false);
   const [displayEdit, setDisplayEdit] = useState<string>("flex");
   const [rendering, setRendering] = useState<boolean>(false);
 
