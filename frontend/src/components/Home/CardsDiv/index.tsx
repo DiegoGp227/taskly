@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
 interface CardsDivProps {
-  changeVisivilityNew: () => void;
+  // changeVisivilityNew: () => void;
   changeRendering: () => void;
   changeVisivilityEdit: () => void;
   renderingStatus: boolean;
@@ -17,7 +17,7 @@ type topicsData = {
 }[];
 
 function CardsDiv({
-  changeVisivilityNew,
+  // changeVisivilityNew,
   renderingStatus,
   changeRendering,
   changeVisivilityEdit,
@@ -66,7 +66,7 @@ function CardsDiv({
 
   return (
     <main className={style.main}>
-      <CreateTopic changeVisivilityNew={changeVisivilityNew} />
+      <CreateTopic  />
       {topics && topics.length > 0 ? (
         topics.map((topic) => (
           <TopicCard

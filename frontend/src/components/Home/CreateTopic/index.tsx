@@ -1,14 +1,19 @@
 import style from "./style.module.css";
 
-interface renderingProps {
-  changeVisivilityNew: () => void;
-}
+// interface renderingProps {
+//   changeVisivilityNew: () => void;
+// }
 
-function CreateTopic({ changeVisivilityNew }: renderingProps) {
+// function CreateTopic({ changeVisivilityNew }: renderingProps) {
+  function CreateTopic() {
+
+
 
   return (
     <>
-      <button className={style.button} onClick={() => changeVisivilityNew()}>
+      {/* <button className={style.button} onClick={() => changeVisivilityNew()}> */}
+      <button className={style.button}>
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

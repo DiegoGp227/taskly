@@ -5,11 +5,12 @@ import EditTopicDiv from "../../components/Home/EditTopicDiv/index.tsx";
 import { useEffect, useState, useRef } from "react";
 
 function HomePage() {
-  const [editTopicVisibility, setEditTopicVisibility] =useState<boolean>(false);
+  const [editTopicVisibility, setEditTopicVisibility] =
+    useState<boolean>(false);
   const [displayEdit, setDisplayEdit] = useState<string>("flex");
   const [rendering, setRendering] = useState<boolean>(false);
-  const refNewForm = useRef<HTMLDialogElement>(null)
-
+  const refNewForm = useRef<HTMLDialogElement>(null);
+  // const [newDivForm, setNewDivForm ] = useState<boolean>(false)
 
   // function changeVisivilityNew() {
   //   newTopicVisibility
@@ -17,18 +18,26 @@ function HomePage() {
   //     : setNewTopicVisibility(true);
   // }
 
-  function changeVisivilityNew() {
-    if (refNewForm.current) {
-      refNewForm.current.showModal()
-    }
-  }
+  // function changeVisivilityNew() {
+  //   if (refNewForm.current) {
+  //     refNewForm.current.showModal();
+  //     setNewDivForm(true)
+  //   }
+  // }
+
+  // if (refNewForm.current?.open && ) {
+
+  // }
+
+  // useEffect(() => {
+
+  // }, [editTopicVisibility]);
 
   function changeVisivilityNewS() {
-    if (refNewForm.current){
-      refNewForm.current.close()
+    if (refNewForm.current) {
+      refNewForm.current.close();
     }
   }
-
 
   // useEffect(() => {
   //   newTopicVisibility ? setDisplayNew("flex") : setDisplayNew("none");
@@ -52,7 +61,7 @@ function HomePage() {
     <>
       <Header />
       <CardsDiv
-        changeVisivilityNew={changeVisivilityNew}
+        // changeVisivilityNew={changeVisivilityNew}
         changeVisivilityEdit={changeVisivilityEdit}
         renderingStatus={rendering}
         changeRendering={changeRendering}
@@ -60,9 +69,10 @@ function HomePage() {
       <NewTopicsDiv
         refNewForm={refNewForm}
         changeRendering={changeRendering}
-        changeVisivilityNew={changeVisivilityNew}
+        // changeVisivilityNew={changeVisivilityNew}
+        changeVisivilityNewS={changeVisivilityNewS}
       />
-      <EditTopicDiv displayStatus={displayEdit} />
+      {/* <EditTopicDiv changeRendering={changeRendering} /> */}
     </>
   );
 }
