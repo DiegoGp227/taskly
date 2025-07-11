@@ -3,7 +3,7 @@ import style from "./style.module.css";
 
 interface newTopicsProps {
   changeRendering: () => void;
-  changeVisivilityNew: () => void;
+  // changeVisivilityNew: () => void;
   refNewForm: React.Ref<HTMLDialogElement>;
   changeVisivilityNewS: () => void;
 }
@@ -11,7 +11,7 @@ interface newTopicsProps {
 function NewTopicsDiv({
   refNewForm,
   changeRendering,
-  changeVisivilityNew,
+  // changeVisivilityNew,
 }: newTopicsProps) {
   const [user_id, setUserId] = useState<string>("");
   const [title, setTitle] = useState<string>("");
@@ -47,7 +47,7 @@ function NewTopicsDiv({
         }
         console.log("Data añadida con éxito:", data);
         changeRendering();
-        changeVisivilityNew();
+        // changeVisivilityNew();
         setTitle("");
         setDescription("");
       } catch (error: any) {
@@ -57,7 +57,7 @@ function NewTopicsDiv({
   }
 
   return (
-    <dialog ref={refNewForm}>
+    <dialog ref={refNewForm} >
       <div className={style.generalDiv}>
         <h1 className={style.title}>Add new topic</h1>
         <form className={style.form} action="dialog" onSubmit={sendData}>
@@ -71,8 +71,6 @@ function NewTopicsDiv({
             }}
           />
           <textarea
-            name=""
-            id=""
             placeholder="Description"
             className={style.textArea}
             value={description}
