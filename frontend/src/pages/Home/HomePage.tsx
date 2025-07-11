@@ -7,7 +7,7 @@ import { useEffect, useState, useRef } from "react";
 function HomePage() {
   const [editTopicVisibility, setEditTopicVisibility] =
     useState<boolean>(false);
-  const [displayEdit, setDisplayEdit] = useState<string>("flex");
+  // const [displayEdit, setDisplayEdit] = useState<string>("flex");
   const [rendering, setRendering] = useState<boolean>(false);
   const refNewForm = useRef<HTMLDialogElement>(null);
   // const [newDivForm, setNewDivForm ] = useState<boolean>(false)
@@ -53,9 +53,9 @@ function HomePage() {
       : setEditTopicVisibility(true);
   }
 
-  useEffect(() => {
-    editTopicVisibility ? setDisplayEdit("flex") : setDisplayEdit("none");
-  }, [editTopicVisibility]);
+  // useEffect(() => {
+  //   editTopicVisibility ? setDisplayEdit("flex") : setDisplayEdit("none");
+  // }, [editTopicVisibility]);
 
   return (
     <>
