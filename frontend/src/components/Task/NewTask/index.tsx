@@ -2,7 +2,7 @@ import style from "./style.module.css";
 import React, { useState } from "react";
 
 interface Prop {
-  Ref: React.Ref<HTMLButtonElement>;
+  Ref: React.Ref<HTMLDialogElement>;
 }
 
 function NewTask({ Ref }: Prop) {
