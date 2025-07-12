@@ -1,7 +1,16 @@
 import style from "./style.module.css";
-import { useRef } from "react";
-function EditTask() {
+import { useRef, useState } from "react";
+interface Prop {
+  id: number;
+}
+function EditTask({ id }: Prop) {
   const DialogRef = useRef(null);
+  const UpdateTasks = async (id: number) => {
+    fetch(`http://localhost:5000/api/tasks/${id}`, {
+      method: "PUT",
+    });
+  };
+  const [taskTitle, setTaskTitle] = useState<string>("");
   return (
     <>
       <button
@@ -29,14 +38,30 @@ function EditTask() {
           </g>
         </svg>
       </button>
-      <dialog ref={DialogRef} closedby="any">
-        <div className={style.generalDiv}>
-          <h1 className={style.title}>Edit tasks</h1>
-          <input className={style.input} type="text" placeholder="new Task" />
-          <form action="dialog" className={style.form}>
-            <button className={style.button}>Send</button>
-          </form>
-        </div>
+      <dialog ref={DialogRef} closedby="any" className={style.generalDiv}>
+        <h1 className={style.title}>Edit tasks</h1>
+        <input
+          className={style.input}
+          type="text"
+          placeholder="new Task"
+          onChange={(e) => {
+            setTaskTitle(e.target.value);
+          }}
+        />
+        <form action="dialog" className={style.form}>
+          <button
+            className={style.button}
+            onClick={(e) => {
+              e.preventDefault();
+              DialogRef.current.close();
+              console.log(taskTitle);
+              UpdateTasks(id);
+              setTaskTitle("");
+            }}
+          >
+            Send
+          </button>
+        </form>
       </dialog>
     </>
   );

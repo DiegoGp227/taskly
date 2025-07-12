@@ -24,7 +24,7 @@ function TaskDiv({ title, id, stateDelect }: tasks) {
         </form>
       </div>
       <div className={style.configurationDiv}>
-        <EditTask />
+        <EditTask id={id} />
         <DeleteTask id={id} stateDelectClick={stateDelect} />
       </div>
     </div>

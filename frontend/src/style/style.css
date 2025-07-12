@@ -47,3 +47,17 @@ body {
   background-repeat: none;
   background-attachment: fixed;
 }
+
+dialog {
+  scale: 0;
+  transition: scale 0.2s ease, display 0.2s allow-discrete;
+}
+
+dialog[open] {
+  display: flex;
+  scale: 1;
+  transition: scale 0.2s ease-in-out;
+  @starting-style {
+    scale: 0;
+  }
+}

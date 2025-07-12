@@ -32,28 +32,27 @@ const CreateTask = ({ Ref }: Prop) => {
   };
   return (
     <>
-      <dialog ref={Ref} closedby="any">
-        <div className={style.generalDiv}>
-          <h1 className={style.title}>New tasks</h1>
-          <input
-            className={style.input}
-            type="text"
-            placeholder="task"
-            onChange={(e) => {
-              setInp(e.target.value);
+      <dialog ref={Ref} closedby="any" className={style.generalDiv}>
+        <h1 className={style.title}>New tasks</h1>
+        <input
+          className={style.input}
+          type="text"
+          placeholder="task"
+          onChange={(e) => {
+            setInp(e.target.value);
+          }}
+        />
+        <form action="dialog" className={style.form}>
+          <button
+            className={style.button}
+            onClick={(e) => {
+              e.preventDefault();
+              CreateTask();
             }}
-          />
-          <form action="dialog" className={style.form}>
-            <button
-              className={style.button}
-              onClick={() => {
-                CreateTask();
-              }}
-            >
-              send
-            </button>
-          </form>
-        </div>
+          >
+            send
+          </button>
+        </form>
       </dialog>
     </>
   );

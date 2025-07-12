@@ -3,7 +3,7 @@ import NewTask from "../../components/Task/NewTask/index.tsx";
 import TaskList from "../../components/Task/TaskList/index.tsx";
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-import CreateTask from "../../components/CreateTask/index.tsx";
+import CreateTask from "../../components/Task/CreateTask/index.tsx";
 import style from "./style.module.css";
 
 function TaskPage() {

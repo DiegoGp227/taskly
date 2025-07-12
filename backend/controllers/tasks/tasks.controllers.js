@@ -48,6 +48,7 @@ const postMyTasks = async (req, res) => {
 const putMyTasks = async (req, res) => {
   try {
     const id = req.params.id;
+    console.log(id);
     const { user_id, topics_id, title, priority, status } = req.body;
 
     const [result] = await db.query(
