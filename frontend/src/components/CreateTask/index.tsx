@@ -1,19 +1,28 @@
 import style from "./index.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 interface Prop {
-  Ref: React.Ref<HTMLButtonElement>;
+  Ref: React.Ref<HTMLDialogElement>;
 }
 
 const CreateTask = ({ Ref }: Prop) => {
   const [inp, setInp] = useState<string>("");
+  const [userId, setUserId] = useState<string | number>("");
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("userId");
+    if (storedUserId) {
+      setUserId(parseInt(storedUserId));
+    }
+  }, []);
+
   const CreateTask = async () => {
-    const res = await fetch("http://localhost:5000/api/tasks", {
+    await fetch("http://localhost:5000/api/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_id: localStorage.getItem("userId"),
+        user_id: userId,
         topics_id: window.location.pathname.split("/")[2],
         title: inp,
         priority: 1,
