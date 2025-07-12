@@ -13,7 +13,7 @@ const CreateTask = ({ Ref }: Prop) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_id: 2,
+        user_id: localStorage.getItem("userId"),
         topics_id: window.location.pathname.split("/")[2],
         title: inp,
         priority: 1,
@@ -25,7 +25,7 @@ const CreateTask = ({ Ref }: Prop) => {
     <>
       <dialog ref={Ref} closedby="any">
         <div className={style.generalDiv}>
-          <h1 className={style.title}>New tak</h1>
+          <h1 className={style.title}>New tasks</h1>
           <input
             className={style.input}
             type="text"
