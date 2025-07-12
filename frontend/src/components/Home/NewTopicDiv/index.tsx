@@ -11,8 +11,8 @@ interface newTopicsProps {
 function NewTopicsDiv({
   refNewForm,
   changeRendering,
-  // changeVisivilityNew,
-}: newTopicsProps) {
+}: // changeVisivilityNew,
+newTopicsProps) {
   const [user_id, setUserId] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -57,7 +57,7 @@ function NewTopicsDiv({
   }
 
   return (
-    <dialog ref={refNewForm} >
+    <dialog ref={refNewForm} closedby="any">
       <div className={style.generalDiv}>
         <h1 className={style.title}>Add new topic</h1>
         <form className={style.form} action="dialog" onSubmit={sendData}>
