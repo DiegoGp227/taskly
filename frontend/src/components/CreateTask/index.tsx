@@ -45,7 +45,6 @@ const CreateTask = ({ Ref }: Prop) => {
           />
           <form action="dialog" className={style.form}>
             <button
-              type="submit"
               className={style.button}
               onClick={() => {
                 CreateTask();

@@ -2,14 +2,19 @@
   width: 45%;
   height: 480px;
   border: 2px solid var(--border-color);
-  overflow-y: scroll;
+  border-radius: var(--border-radius);
 }
 
 .taskContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  overflow-y: auto;
+  height: 400px;
+}
+.taskContainer::-webkit-scrollbar {
+  width: 0px;
 }
 
 .titleDiv {
