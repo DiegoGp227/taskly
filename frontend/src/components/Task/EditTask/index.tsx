@@ -1,16 +1,43 @@
 import style from "./style.module.css";
 import { useRef, useState } from "react";
+
 interface Prop {
   id: number;
+  user_id?: number;
+  topics_id?: number;
+  title: string;
+  priority?: number;
+  status?: number;
+  stateDelect?: () => void;
 }
-function EditTask({ id }: Prop) {
+function EditTask({
+  id,
+  user_id,
+  topics_id,
+  title,
+  priority,
+  status,
+  stateDelect,
+}: Prop) {
+  const [taskTitle, setTaskTitle] = useState<string>("");
   const DialogRef = useRef(null);
   const UpdateTasks = async (id: number) => {
-    fetch(`http://localhost:5000/api/tasks/${id}`, {
+    console.log(status, priority, user_id, topics_id, title, id, title);
+    await fetch(`http://localhost:5000/api/tasks/${id}`, {
       method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: taskTitle,
+        user_id,
+        topics_id,
+        priority,
+        status,
+      }),
     });
+    stateDelect(true);
   };
-  const [taskTitle, setTaskTitle] = useState<string>("");
   return (
     <>
       <button
@@ -56,7 +83,6 @@ function EditTask({ id }: Prop) {
               DialogRef.current.close();
               console.log(taskTitle);
               UpdateTasks(id);
-              setTaskTitle("");
             }}
           >
             Send

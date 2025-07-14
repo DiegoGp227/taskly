@@ -12,7 +12,15 @@ interface tasks {
   stateDelect: () => void;
 }
 
-function TaskDiv({ title, id, stateDelect }: tasks) {
+function TaskDiv({
+  title,
+  id,
+  topics_id,
+  priority,
+  status,
+  user_id,
+  stateDelect,
+}: tasks) {
   return (
     <div className={style.taskDiv}>
       <div className={style.divText}>
@@ -24,7 +32,15 @@ function TaskDiv({ title, id, stateDelect }: tasks) {
         </form>
       </div>
       <div className={style.configurationDiv}>
-        <EditTask id={id} />
+        <EditTask
+          id={id}
+          title={title}
+          topics_id={topics_id}
+          priority={priority}
+          status={status}
+          user_id={user_id}
+          stateDelect={stateDelect}
+        />
         <DeleteTask id={id} stateDelectClick={stateDelect} />
       </div>
     </div>

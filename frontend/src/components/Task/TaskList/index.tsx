@@ -57,13 +57,20 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
       </div>
       <div className={style.taskContainer}>
         {tasks && tasks.length > 0 ? (
-          tasks.map((task) => (
-            <TaskDiv
-              title={task.title}
-              id={task.id}
-              stateDelect={changeStatus}
-            />
-          ))
+          tasks
+            .map((task) => (
+              <TaskDiv
+                title={task.title}
+                id={task.id}
+                priority={task.priority}
+                status={task.status}
+                user_id={task.user_id}
+                topics_id={task.topics_id}
+                stateDelect={changeStatus}
+                key={task.id}
+              />
+            ))
+            .reverse()
         ) : (
           <TaskNotFound />
         )}

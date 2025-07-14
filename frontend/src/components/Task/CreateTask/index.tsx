@@ -29,6 +29,7 @@ const CreateTask = ({ Ref }: Prop) => {
         status: 0,
       }),
     });
+    Ref.current.close();
   };
   return (
     <>
