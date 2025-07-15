@@ -7,6 +7,8 @@ interface TaskListProps {
   title: string;
   id: number | undefined;
   tasksStatus: number;
+  newTaskClickState: boolean;
+  setTaskClickState: () => void;
 }
 
 interface tasksData {
@@ -17,13 +19,19 @@ interface tasksData {
   priority: number;
   status: number;
 }
-[];
 
-function TaskList({ title, id, tasksStatus }: TaskListProps) {
+function TaskList({
+  title,
+  id,
+  tasksStatus,
+  newTaskClickState,
+  setTaskClickState,
+}: TaskListProps) {
   const [tasks, setTasks] = useState<tasksData[] | undefined>();
   const [delectState, setDelectState] = useState<boolean>(false);
+  console.log(tasksStatus);
   function changeStatus() {
-    delectState ? setDelectState(false) : setDelectState(true);
+    return delectState ? setDelectState(false) : setDelectState(true);
   }
   useEffect(() => {
     async function getTasks() {
@@ -39,8 +47,7 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
 
         const data = await response.json();
         setTasks(data);
-        console.log("Data recibida con éxito:", data); // este console.log no lo puse yo 😡
-      } catch (error: any) {
+      } catch (error: Error | any) {
         console.error("Error en el fetch:", error.message);
       }
     }
@@ -48,7 +55,7 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
     if (id !== undefined && tasksStatus !== undefined) {
       getTasks();
     }
-  }, [id, tasksStatus, delectState]);
+  }, [id, tasksStatus, delectState, newTaskClickState]);
 
   return (
     <section className={style.taskSection}>
@@ -57,13 +64,21 @@ function TaskList({ title, id, tasksStatus }: TaskListProps) {
       </div>
       <div className={style.taskContainer}>
         {tasks && tasks.length > 0 ? (
-          tasks.map((task) => (
-            <TaskDiv
-              title={task.title}
-              id={task.id}
-              stateDelect={changeStatus}
-            />
-          ))
+          tasks
+            .map((task) => (
+              <TaskDiv
+                title={task.title}
+                id={task.id}
+                priority={task.priority}
+                status={task.status}
+                user_id={task.user_id}
+                topics_id={task.topics_id}
+                stateDelect={changeStatus}
+                key={task.id}
+                setTaskClickState={setTaskClickState}
+              />
+            ))
+            .reverse()
         ) : (
           <TaskNotFound />
         )}

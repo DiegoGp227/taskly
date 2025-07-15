@@ -1,7 +1,42 @@
 import style from "./style.module.css";
-import { useRef } from "react";
-function EditTask() {
+import { useRef, useState } from "react";
+
+interface Prop {
+  id: number;
+  user_id?: number;
+  topics_id?: number;
+  title: string;
+  priority?: number;
+  status?: number;
+  stateDelect?: () => void;
+}
+function EditTask({
+  id,
+  user_id,
+  topics_id,
+  title,
+  priority,
+  status,
+  stateDelect,
+}: Prop) {
+  const [taskTitle, setTaskTitle] = useState<string>("");
   const DialogRef = useRef(null);
+  const UpdateTasks = async (id: number) => {
+    await fetch(`http://localhost:5000/api/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: taskTitle,
+        user_id,
+        topics_id,
+        priority,
+        status,
+      }),
+    });
+    stateDelect(true);
+  };
   return (
     <>
       <button
@@ -12,8 +47,8 @@ function EditTask() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="30"
+          height="30"
           viewBox="0 0 24 24"
           className={style.svg}
         >
@@ -29,14 +64,29 @@ function EditTask() {
           </g>
         </svg>
       </button>
-      <dialog ref={DialogRef} closedby="any">
-        <div className={style.generalDiv}>
-          <h1 className={style.title}>Edit tasks</h1>
-          <input className={style.input} type="text" placeholder="new Task" />
-          <form action="dialog" className={style.form}>
-            <button className={style.button}>Send</button>
-          </form>
-        </div>
+      <dialog ref={DialogRef} closedby="any" className={style.generalDiv}>
+        <h1 className={style.title}>Edit tasks</h1>
+        <input
+          className={style.input}
+          type="text"
+          placeholder="new Task"
+          onChange={(e) => {
+            setTaskTitle(e.target.value);
+          }}
+        />
+        <form action="dialog" className={style.form}>
+          <button
+            className={style.button}
+            onClick={(e) => {
+              e.preventDefault();
+              DialogRef.current.close();
+              console.log(taskTitle);
+              UpdateTasks(id);
+            }}
+          >
+            Send
+          </button>
+        </form>
       </dialog>
     </>
   );

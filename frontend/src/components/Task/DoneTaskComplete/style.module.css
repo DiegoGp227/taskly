@@ -1,34 +1,17 @@
-.taskSection {
-  width: 45%;
-  height: 480px;
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius);
+.checkbox {
+  margin-right: 10px;
 }
 
-.taskContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-y: auto;
-  height: 400px;
-}
-.taskContainer::-webkit-scrollbar {
-  width: 0px;
-}
-
-.titleDiv {
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 30px;
+.labelText {
   color: var(--font-color-white);
 }
 
-/* // */
+.configurationDiv {
+  display: flex;
+  gap: 5px;
+}
+
+/**/
 .checkbox {
   display: none;
 }
@@ -49,7 +32,6 @@
 }
 
 .labelText::before {
-  content: "";
   display: inline-block;
   width: 20px;
   height: 20px;

@@ -18,10 +18,13 @@
 
 .divCard:hover {
   /* scale: var(--escale); */
-  border: 2px solid var(--background-actions)
+  filter: drop-shadow(2px 4px 20px var(--shadow-hover));
+  border: 2px solid var(--background-actions);
+  transition: border ease 0.4s;
+  transition: filter ease 0.4s;
 }
 
-.divCard:hover .titleMain{
+.divCard:hover .titleMain {
   color: var(--background-actions);
 }
 

@@ -1,6 +1,5 @@
 .main {
   width: 100vw;
-  background-color: var(--background-color-black);
 }
 
 .firstSection {
@@ -19,6 +18,11 @@
 .title {
   font-size: 40px;
   color: var(--font-color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
 }
 
 .divbutton {
