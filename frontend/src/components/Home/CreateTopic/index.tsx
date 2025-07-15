@@ -1,19 +1,19 @@
 import style from "./style.module.css";
 
-// interface renderingProps {
-//   changeVisivilityNew: () => void;
-// }
+interface renderingProps {
+  refNewForm: React.Ref<HTMLDialogElement>;
+}
 
 // function CreateTopic({ changeVisivilityNew }: renderingProps) {
-  function CreateTopic() {
-
-
-
+function CreateTopic({ refNewForm }: renderingProps) {
   return (
     <>
       {/* <button className={style.button} onClick={() => changeVisivilityNew()}> */}
-      <button className={style.button}>
-
+      <button className={style.button} onClick={() => {
+        if (refNewForm.current) {
+          refNewForm.current.showModal()
+        }
+      }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

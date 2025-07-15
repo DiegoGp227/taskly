@@ -18,14 +18,14 @@ function HomePage() {
   //     : setNewTopicVisibility(true);
   // }
 
-  // function changeVisivilityNew() {
-  //   if (refNewForm.current) {
-  //     refNewForm.current.showModal();
-  //     setNewDivForm(true)
-  //   }
-  // }
+  function changeVisivilityNew() {
+    if (refNewForm.current) {
+      refNewForm.current.showModal();
+      // setNewDivForm(true)
+    }
+  }
 
-  // if (refNewForm.current?.open && ) {
+  // if (refNewForm.current?.open &&refNewForm ) {
 
   // }
 
@@ -61,6 +61,7 @@ function HomePage() {
     <>
       <Header />
       <CardsDiv
+        refNewForm={refNewForm}
         // changeVisivilityNew={changeVisivilityNew}
         changeVisivilityEdit={changeVisivilityEdit}
         renderingStatus={rendering}

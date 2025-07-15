@@ -15,7 +15,7 @@
   --font-color-white: #ffffff;
 
   /* 💡 Bordes y radios */
-  --border-radius: 5px;
+  --border-radius: 10px;
   --border-color: #555;
 
   /* 🔤 Tipografía */
@@ -30,8 +30,35 @@
   /* 🕶 Sombras */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-hover: rgba(45, 210, 67, 0.216);
 }
 
 body {
   background-color: var(--background-color-black);
+  background: linear-gradient(
+    180deg,
+    #212224,
+    #212224,
+    #212224,
+    #212224,
+    #212224,
+    #0a1e0ee8
+  );
+  background-repeat: none;
+  background-attachment: fixed;
+}
+
+dialog {
+  scale: 0;
+  transition: scale 0.2s ease, display 0.2s allow-discrete;
+}
+
+dialog[open] {
+  display: flex;
+  scale: 1;
+  filter: drop-shadow(2px 8px 40px var(--shadow-hover));
+  transition: scale 0.2s ease-in-out, filter ease-in-out 0.8s;
+  @starting-style {
+    scale: 0;
+  }
 }

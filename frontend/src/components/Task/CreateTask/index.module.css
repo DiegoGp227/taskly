@@ -3,22 +3,15 @@
 }
 
 .generalDiv {
-  position: fixed;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
   background-color: var(--background-color-black);
   border-radius: var(--border-radius);
   border: 2px solid var(--background-actions);
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: auto;
-  /* display: none; */
 }
 
 .form {

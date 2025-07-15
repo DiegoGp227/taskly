@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import style from "./style.module.css";
 
 interface CardsDivProps {
-  // changeVisivilityNew: () => void;
+  refNewForm: React.Ref<HTMLDialogElement>;
   changeRendering: () => void;
   changeVisivilityEdit: () => void;
   renderingStatus: boolean;
@@ -17,7 +17,7 @@ type topicsData = {
 }[];
 
 function CardsDiv({
-  // changeVisivilityNew,
+  refNewForm,
   renderingStatus,
   changeRendering,
   changeVisivilityEdit,
@@ -65,7 +65,7 @@ function CardsDiv({
 
   return (
     <main className={style.main}>
-      <CreateTopic  />
+      <CreateTopic refNewForm={refNewForm} />
       {topics && topics.length > 0 ? (
         topics.map((topic) => (
           <TopicCard

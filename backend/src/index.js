@@ -1,13 +1,12 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import pageRoutes from '../routes/index.routes.js';
-import dotenv from 'dotenv'; 
+import pageRoutes from "../routes/index.routes.js";
+import dotenv from "dotenv";
 
-dotenv.config(); 
+dotenv.config();
 
-
-const PORT = process.env.PORT; 
+const PORT = process.env.PORT;
 
 // Configuration
 const app = express();
@@ -15,7 +14,7 @@ const app = express();
 const corsConfiguration = {
   origin: [
     "http://localhost:5173",
-    "https://5db5-190-25-164-252.ngrok-free.app"
+    "https://5db5-190-25-164-252.ngrok-free.app",
   ],
   credentials: true,
 };
@@ -27,9 +26,9 @@ app.use("/api", pageRoutes);
 
 // Maneja las rutas no encontradas
 app.use((req, res, next) => {
-    res.status(404).json({
-        message: "Escribe bien mono estupido"
-    });
+  res.status(404).json({
+    message: "Escribe bien mono estupido",
+  });
 });
 
 // Server running

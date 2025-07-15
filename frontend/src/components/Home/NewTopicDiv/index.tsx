@@ -11,8 +11,8 @@ interface newTopicsProps {
 function NewTopicsDiv({
   refNewForm,
   changeRendering,
-  // changeVisivilityNew,
-}: newTopicsProps) {
+}: // changeVisivilityNew,
+newTopicsProps) {
   const [user_id, setUserId] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -57,32 +57,30 @@ function NewTopicsDiv({
   }
 
   return (
-    <dialog ref={refNewForm} >
-      <div className={style.generalDiv}>
-        <h1 className={style.title}>Add new topic</h1>
-        <form className={style.form} action="dialog" onSubmit={sendData}>
-          <input
-            type="text"
-            className={style.input}
-            placeholder="Title"
-            value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-          />
-          <textarea
-            placeholder="Description"
-            className={style.textArea}
-            value={description}
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
-          ></textarea>
-          <button type="submit" className={style.button}>
-            Send
-          </button>
-        </form>
-      </div>
+    <dialog ref={refNewForm} closedby="any" className={style.generalDiv}>
+      <h1 className={style.title}>Add new topic</h1>
+      <form className={style.form} action="dialog" onSubmit={sendData}>
+        <input
+          type="text"
+          className={style.input}
+          placeholder="Title"
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <textarea
+          placeholder="Description"
+          className={style.textArea}
+          value={description}
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+        ></textarea>
+        <button type="submit" className={style.button}>
+          Send
+        </button>
+      </form>
     </dialog>
   );
 }
