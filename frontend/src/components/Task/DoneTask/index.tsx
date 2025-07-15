@@ -7,6 +7,7 @@ interface Prop {
   title: string;
   priority?: number;
   stateUpdate?: () => void;
+  setTaskClickState: () => void;
 }
 
 const DomeTask = ({
@@ -16,6 +17,7 @@ const DomeTask = ({
   priority,
   topics_id,
   stateUpdate,
+  setTaskClickState,
 }: Prop) => {
   const DoneTaskClick = async () => {
     await fetch(`http://localhost:5000/api/tasks/${id}`, {
@@ -32,7 +34,8 @@ const DomeTask = ({
         topics_id,
       }),
     });
-    stateUpdate(true);
+    stateUpdate();
+    setTaskClickState();
   };
   return (
     <div className={style.divText}>

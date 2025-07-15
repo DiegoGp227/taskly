@@ -2,9 +2,10 @@ import style from "./index.module.css";
 import { useState, useEffect } from "react";
 interface Prop {
   Ref: React.Ref<HTMLDialogElement>;
+  setStateNewTask: () => void;
 }
 
-const CreateTask = ({ Ref }: Prop) => {
+const CreateTask = ({ Ref, setStateNewTask }: Prop) => {
   const [inp, setInp] = useState<string>("");
   const [userId, setUserId] = useState<string | number>("");
 
@@ -30,6 +31,7 @@ const CreateTask = ({ Ref }: Prop) => {
       }),
     });
     Ref.current.close();
+    setStateNewTask();
   };
   return (
     <>

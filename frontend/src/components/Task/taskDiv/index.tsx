@@ -11,6 +11,7 @@ interface tasks {
   priority?: number;
   status?: number;
   stateDelect: () => void;
+  setTaskClickState: () => void;
 }
 
 function TaskDiv({
@@ -21,6 +22,7 @@ function TaskDiv({
   status,
   user_id,
   stateDelect,
+  setTaskClickState,
 }: tasks) {
   return (
     <>
@@ -33,6 +35,7 @@ function TaskDiv({
             priority={priority}
             user_id={user_id}
             stateUpdate={stateDelect}
+            setTaskClickState={setTaskClickState}
           />
           <div className={style.configurationDiv}>
             <EditTask
