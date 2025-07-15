@@ -56,7 +56,8 @@ dialog {
 dialog[open] {
   display: flex;
   scale: 1;
-  transition: scale 0.2s ease-in-out;
+  filter: drop-shadow(2px 8px 40px var(--shadow-hover));
+  transition: scale 0.2s ease-in-out, filter ease-in-out 0.8s;
   @starting-style {
     scale: 0;
   }

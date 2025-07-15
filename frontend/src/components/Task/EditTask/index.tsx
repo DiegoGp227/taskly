@@ -22,7 +22,6 @@ function EditTask({
   const [taskTitle, setTaskTitle] = useState<string>("");
   const DialogRef = useRef(null);
   const UpdateTasks = async (id: number) => {
-    console.log(status, priority, user_id, topics_id, title, id, title);
     await fetch(`http://localhost:5000/api/tasks/${id}`, {
       method: "PUT",
       headers: {
@@ -48,8 +47,8 @@ function EditTask({
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="30"
+          height="30"
           viewBox="0 0 24 24"
           className={style.svg}
         >

@@ -25,9 +25,8 @@ const getMyTasks = async (req, res) => {
 const postMyTasks = async (req, res) => {
   try {
     await db.connect();
-    console.log(await req.body);
     const { user_id, topics_id, title, priority, status } = req.body;
-
+    console.log(req.body);
     const [result] = await db.query(
       "INSERT INTO tasks (user_id, topics_id, title, priority, status) VALUES (?, ?, ?, ?, ?)",
       [user_id, topics_id, title, priority, status]
