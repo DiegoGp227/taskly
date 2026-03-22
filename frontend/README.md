@@ -1,54 +1,74 @@
-# React + TypeScript + Vite
+# Taskly
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Taskly** is a full-stack task management web application that lets users organize their work into custom topic boards, each with its own task pipeline — from *To Do* to *Complete*.
 
-Currently, two official plugins are available:
+Built as a personal project to demonstrate proficiency in modern frontend development with React, TypeScript, and a REST API integration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Live Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> *Coming soon / [add your deploy URL here]*
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## Screenshots
+
+> *Add screenshots or a GIF demo here*
+
+---
+
+## What it does
+
+Users can sign up, log in, and immediately start organizing their work:
+
+1. **Create topic boards** — group tasks by project, area, or any category you define.
+2. **Add tasks with priority** — each task has a title and a priority level so nothing gets lost.
+3. **Track progress visually** — tasks live in two clear columns: *To Do* and *Complete*.
+4. **Full control** — edit or delete any task or topic at any time.
+5. **Persistent sessions** — authentication state is preserved across page refreshes.
+
+---
+
+## Technical highlights
+
+- **React 19 + TypeScript** — strict typing throughout the entire component tree, from props to API responses.
+- **React Router 7** — client-side navigation with protected and dynamic routes.
+- **Component architecture** — UI split into small, focused, reusable components with clear separation between pages and logic.
+- **CSS Modules** — scoped styles per component with zero class name conflicts.
+- **REST API integration** — async data fetching with proper loading and error handling, consuming a Node.js backend.
+- **Token-based auth** — JWT flow with secure session management on the client side.
+- **Vite** — fast build tooling with Hot Module Replacement for an efficient development experience.
+
+---
+
+## Stack
+
+| | |
+|---|---|
+| Language | TypeScript 5 |
+| UI library | React 19 |
+| Routing | React Router 7 |
+| Build tool | Vite 6 |
+| Styling | CSS Modules |
+| Backend | Node.js REST API |
+
+---
+
+## Run it locally
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Requires the backend running at `http://localhost:5000`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## About
+
+Built end-to-end by me as a portfolio project — from UI design and component architecture to API integration and authentication flow.
